@@ -4,12 +4,7 @@
         "es2021": true,
         "node": true
     },
-    "eslint.workingDirectories": [
-        {"mode": "auto"},
-        "./backend",
-        "./frontend"
-    ],
-    
+    "parser": "babel-eslint",
     "extends": "plugin:react/recommended",
     "overrides": [
     ],

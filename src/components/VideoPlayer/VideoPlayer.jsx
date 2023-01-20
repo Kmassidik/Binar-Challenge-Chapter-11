@@ -9,22 +9,23 @@ export default function VideoPlayer() {
     ]
   
     // handle mouse enter
-    const handleMouseEnter = (e) => {
-      const vid = e.target
+    // const handleMouseEnter = (e) => {
+    //   const vid = e.target
     //   vid.muted = true
-      vid.play()
-    }
+    //   vid.play()
+    // }
   
     // handle mouse leave
-    const handleMouseLeave = (e) => {
-      const vid = e.target
+    // const handleMouseLeave = (e) => {
+    //   const vid = e.target
     //   vid.muted = false
-      vid.currentTime = 0
-      vid.pause()
-    }
+    //   vid.currentTime = 0
+    //   vid.pause()
+    // }
   
     return (
-      <>
+      <div>
+
         <h1 className='text-center'>Cloudinary Video Show</h1>
         <div className='container'>
           <div className='row'>
@@ -51,7 +52,8 @@ export default function VideoPlayer() {
             ))}
           </div>
         </div>
-      </>
+          
+        </div>
     )
   }
   
