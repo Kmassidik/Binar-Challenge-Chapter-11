@@ -1,8 +1,30 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import Register from '../src/pages/Register'
+import Login from '../src/pages/Login'
+import Home from '../src/pages/Home'
+import Profile from '../src/pages/Profile'
+import Games from '../src/pages/Games'
+import Leaderboard from '../src/pages/Leaderboard'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+
+describe('test all pages render', () => { 
+  test('renders Register pages', () => {
+    render(<Register/>)
+  })
+  test('renders Login pages', () => {
+    render(<Login/>)
+  })
+  test('renders Home pages', () => {
+    render(<Home/>)
+  })
+  test('renders Profile pages', () => {
+    render(<Profile/>)
+  })
+  test('renders Games pages', () => {
+    render(<Games/>)
+  })
+  test('renders Leaderboard pages', () => {
+    render(<Leaderboard/>)
+  })
+})
