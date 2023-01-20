@@ -1,27 +1,25 @@
 {
     "env": {
         "browser": true,
-        "es2021": true,
-        "node": true
+        "es2021": true
     },
-    "eslint.workingDirectories": [
-        {"mode": "auto"}
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
     ],
-    "extends": "plugin:react/recommended",
     "overrides": [
     ],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "sourceType": "module"
     },
     "plugins": [
         "react"
     ],
     "rules": {
-        "no-console": "warn",
-        "camelcase": "error",
-        "curly": "warn",
-        "no-unused-vars": "warn",
-        "quotes": ["warn", "double"]
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
     }
 }
