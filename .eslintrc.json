@@ -5,8 +5,11 @@
         "node": true
     },
     "eslint.workingDirectories": [
-        {"mode": "auto"}
+        {"mode": "auto"},
+        "./backend",
+        "./frontend"
     ],
+    
     "extends": "plugin:react/recommended",
     "overrides": [
     ],
