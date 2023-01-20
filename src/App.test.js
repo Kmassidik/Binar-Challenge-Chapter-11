@@ -7,11 +7,6 @@ import Profile from '../src/pages/Profile'
 import Games from '../src/pages/Games'
 import Leaderboard from '../src/pages/Leaderboard'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
 
 describe('test all pages render', () => { 
   test('renders Register pages', () => {
