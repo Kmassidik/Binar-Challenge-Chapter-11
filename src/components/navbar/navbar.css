@@ -1,0 +1,9 @@
+a{
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+.hoverNav:hover {
+    background-color:silver;
+    color: yellow;
+    border-radius:8px
+}

@@ -1,12 +1,12 @@
 import React from "react"
 
 export default function VideoPlayer() { 
-    const media_urls = [
+    const mediaUrl = [
       {
         id: 1,
-        title: 'Video One',
-        video_url:
-          'https://res.cloudinary.com/dlxw2mnrp/video/upload/v1674188873/random/testvideo_nnhbot.mp4',
+        title: "Video One",
+        videoUrl:
+          "https://res.cloudinary.com/dlxw2mnrp/video/upload/v1674188873/random/testvideo_nnhbot.mp4",
       },
     ]
   
@@ -28,25 +28,25 @@ export default function VideoPlayer() {
     return (
       <div>
 
-        <h1 className='text-center'>Cloudinary Video Show</h1>
-        <div className='container'>
-          <div className='row'>
-            {media_urls.map((media) => (
-              <div key={media.id} className='col-lg-4 col-sm-6 mb-4'>
-                <div className='card h-100'>
-                  <div className='card-body'>
-                    <h4 className='card-title'>{media.title}</h4>
+        <h1 className="text-center">Cloudinary Video Show</h1>
+        <div className="container">
+          <div className="row">
+            {mediaUrl.map((media) => (
+              <div key={media.id} className="col-lg-4 col-sm-6 mb-4">
+                <div className="card h-100">
+                  <div className="card-body">
+                    <h4 className="card-title">{media.title}</h4>
                     <video
                       // controls
-                      width='320'
-                      height='240'
+                      width="320"
+                      height="240"
                       muted
                       autoPlay
                       loop
                       // onMouseEnter={handleMouseEnter}
                       // onMouseLeave={handleMouseLeave}
                     >
-                      <source src={media.video_url} type='video/mp4' />
+                      <source src={media.videoUrl} type="video/mp4"/>
                     </video>
                   </div>
                 </div>
