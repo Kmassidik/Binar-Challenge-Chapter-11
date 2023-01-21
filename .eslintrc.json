@@ -19,12 +19,12 @@
         "react"
     ],
     "rules": {
-        "react/jsx-uses-react": "warn",
-        "react/jsx-uses-vars": "warn",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
         "no-console": "error",
         "camelcase": "error",
         "curly": "error",
-        "no-unused-vars": "warn",
+        "no-unused-vars": "error",
         "quotes": ["error", "double"]
     }
 }
