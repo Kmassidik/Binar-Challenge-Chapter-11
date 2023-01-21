@@ -16,7 +16,7 @@ export default function Footer() {
                   <div className="col-lg-1"></div>
                     <div className="col-lg-8 d-flex justify-content-sm-start item-xs-center">
                         <div className="d-flex mb-2">
-                          <img width={50} src={footerBinar} alt="" />
+                          <img width={45} src={footerBinar} alt="" />
                           <h5 className="card-title ms-3 me-3 mt-2">Binar<br/>Games</h5>
                         </div>
                     </div>
