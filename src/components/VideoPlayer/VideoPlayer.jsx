@@ -38,15 +38,15 @@ export default function VideoPlayer() {
                     <h4 className='card-title'>{media.title}</h4>
                     <video
                       // controls
-                      width='320'
-                      height='240'
+                      width="320"
+                      height="240"
                       muted
                       autoPlay
                       loop
                       // onMouseEnter={handleMouseEnter}
                       // onMouseLeave={handleMouseLeave}
                     >
-                      <source src={media.video_url} type='video/mp4' />
+                      <source src={media.videoUrl} type="video/mp4"/>
                     </video>
                   </div>
                 </div>
