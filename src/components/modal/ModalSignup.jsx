@@ -3,16 +3,15 @@ import React from "react"
 export default function ModalSignup() {
     return(
         <>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Login
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                Sign Up
             </button>
 
-            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
-                        <div className="">
-                            <h1 className="modal-title fs-5" id="staticBackdropLabel"></h1>
-                            <button type="button" className="btn-close mt-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div className="d-flex justify-content-end">
+                            <button type="button" className="btn text-white d-flex" data-bs-dismiss="modal" aria-label="Close">X</button>
                         </div>
                         <div className="modal-body">
                             <h1 className="text-white mb-4 mt-3">Sign Up</h1>
