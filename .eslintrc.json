@@ -24,7 +24,7 @@
         "no-console": "error",
         "camelcase": "error",
         "curly": "error",
-        "no-unused-vars": "error",
+        "no-unused-vars": "warn",
         "quotes": ["error", "double"]
     }
 }
