@@ -1,0 +1,48 @@
+.update-profile .modal-content {
+    background-color: #933093; 
+}
+
+.update-profile .modal-button {
+    border-radius: 30px;
+    background-color: #f99d1c;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.update-profile .modal-logo {
+    width: 100px;
+}
+
+.update-profile .modal-edit {
+    border-radius: 30px;
+    width: 90%;
+}
+
+.update-profile .main-button {
+    background-color: white;
+    color: royalblue;
+    border: none;
+}
+
+.update-profile .btn:hover {
+    background-color: white;
+    color: orangered;
+}
+
+.update-profile form img {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    margin-bottom: 1rem;
+
+}
+
+.update-profile form input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 30px;
+    border: none;
+    height: 2rem;
+    margin-bottom: 1rem;
+
+}
