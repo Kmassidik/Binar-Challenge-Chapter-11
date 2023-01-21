@@ -4,8 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+        "eslint:recommended"
+        // "plugin:react/recommended"
     ],
     "overrides": [
     ],
@@ -21,10 +21,10 @@
     "rules": {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
-        "no-console": "warn",
+        "no-console": "error",
         "camelcase": "error",
-        "curly": "warn",
-        "no-unused-vars": "warn",
-        "quotes": ["warn", "double"]
+        "curly": "error",
+        "no-unused-vars": "error",
+        "quotes": ["error", "double"]
     }
 }
