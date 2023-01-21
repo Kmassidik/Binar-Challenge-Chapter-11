@@ -3,17 +3,17 @@ import React from "react"
 export default function ModalSignin() {
     return(
         <>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Login
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                Sign In
             </button>
 
-            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
+                    <div className="d-flex justify-content-end">
+                            <button type="button" className="btn text-white d-flex" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
                         <div className="modal-body">
-                            <div>
-                                <button type="button" className="btn-close mt-4" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
                             <h1 className="text-white mb-4 mt-3">Sign In</h1>
                             <div className="d-flex row justify-content-center">
                                 <button type="button" className="modal-button btn btn-warning">
