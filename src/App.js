@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Navbar, VideoPlayer } from "./components";
+import { Navbar } from "./components";
 
 function App() {
   return (
