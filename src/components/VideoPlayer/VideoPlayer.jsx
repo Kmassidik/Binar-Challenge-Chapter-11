@@ -1,12 +1,12 @@
 import React from "react"
 
 export default function VideoPlayer() { 
-    const media_urls = [
+    const mediaUrls = [
       {
         id: 1,
-        title: 'Video One',
-        video_url:
-          'https://res.cloudinary.com/dlxw2mnrp/video/upload/v1674188873/random/testvideo_nnhbot.mp4',
+        title: "Video One",
+        videoUrl:
+          "https://res.cloudinary.com/dlxw2mnrp/video/upload/v1674188873/random/testvideo_nnhbot.mp4",
       },
     ]
   
@@ -31,7 +31,7 @@ export default function VideoPlayer() {
         <h1 className='text-center'>Cloudinary Video Show</h1>
         <div className='container'>
           <div className='row'>
-            {media_urls.map((media) => (
+            {mediaUrls.map((media) => (
               <div key={media.id} className='col-lg-4 col-sm-6 mb-4'>
                 <div className='card h-100'>
                   <div className='card-body'>
