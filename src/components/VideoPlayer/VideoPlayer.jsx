@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function VideoPlayer() { 
-    const mediaUrl = [
+    const mediaUrls = [
       {
         id: 1,
         title: "Video One",
@@ -28,14 +28,14 @@ export default function VideoPlayer() {
     return (
       <div>
 
-        <h1 className="text-center">Cloudinary Video Show</h1>
-        <div className="container">
-          <div className="row">
-            {mediaUrl.map((media) => (
-              <div key={media.id} className="col-lg-4 col-sm-6 mb-4">
-                <div className="card h-100">
-                  <div className="card-body">
-                    <h4 className="card-title">{media.title}</h4>
+        <h1 className='text-center'>Cloudinary Video Show</h1>
+        <div className='container'>
+          <div className='row'>
+            {mediaUrls.map((media) => (
+              <div key={media.id} className='col-lg-4 col-sm-6 mb-4'>
+                <div className='card h-100'>
+                  <div className='card-body'>
+                    <h4 className='card-title'>{media.title}</h4>
                     <video
                       // controls
                       width="320"
