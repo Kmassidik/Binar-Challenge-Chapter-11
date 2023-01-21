@@ -9,18 +9,20 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
+
     - name: Use Node.js 16
       uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - name: eslint project
-      run:
-        npm run lint
+      
     - name: 🔨 Build Project
       run: |
         npm ci
         npm run build
 
+    - name: eslint project
+      run:
+        npm run lint
     
     # - name: 📂 Sync files
     #   uses: SamKirkland/FTP-Deploy-Action@4.3.3
