@@ -1,13 +1,14 @@
 import React from "react"
-import "./Profile.css"
+import "./ProfileComponent.css"
 import UpdateProfile from "../updateProfile/UpdateProfile"
 
 const ProfileComponent = () => {
+
   return (
     <div className="profile">
         <div className="profile__content">
             <div className="profile__picture">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="profile" />
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="profile" />
             </div>
             <div className="profile__desc">
                 <div className="profile__email">
@@ -15,7 +16,7 @@ const ProfileComponent = () => {
                 </div>
                 <div className="profile__display-name">
                     <p>Nathanza Gaurangga</p>
-                    <UpdateProfile />
+                    <UpdateProfile text="Edit" />
                 </div>
                 <div className="profile__achievements">
                     <div className="profile__achievements-head">

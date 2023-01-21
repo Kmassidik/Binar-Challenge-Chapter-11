@@ -8,6 +8,10 @@
   font-weight: 400
 }
 
+.nav-link {
+  border-radius:10px;
+}
+
 .nav-link:hover {
   /* background-color: #205295; */
   background-color: #933093;
