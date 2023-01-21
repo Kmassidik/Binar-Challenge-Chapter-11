@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react"
+import ProfileComponent from "../components/profile/ProfileComponent"
+import Navbar from "../components/navbar/navbar"
 
 export default function Profile() {
     return(
         <>
-            ini Profile
+            <Navbar />
+            <ProfileComponent />
         </>
     )
 }

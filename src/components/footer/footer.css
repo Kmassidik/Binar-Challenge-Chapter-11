@@ -1,0 +1,12 @@
+.footer-end{
+    text-decoration: none;
+}
+
+.footer-button {
+    border-radius: 30px;
+    border-width: 2px;
+    border-color: #2F3148;
+    height: 35px;
+    min-width: 35px;
+    width: 35px;
+}

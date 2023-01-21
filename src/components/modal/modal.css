@@ -1,0 +1,18 @@
+.modal-content {
+    background: #763670;
+}
+
+.modal-button {
+    border-radius: 30px;
+    background-color: #f99d1c;
+    width: 90%;
+}
+
+.modal-logo {
+    width: 100px;
+}
+
+.modal-edit {
+    border-radius: 30px;
+    width: 90%;
+}
