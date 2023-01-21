@@ -1,12 +1,11 @@
 import React from "react";
 import "./App.css";
-import { VideoUpload } from "./components";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <VideoUpload/>
+      <Home/>
     </div>
   );
 }
