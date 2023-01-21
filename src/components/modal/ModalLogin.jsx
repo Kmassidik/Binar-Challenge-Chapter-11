@@ -9,7 +9,7 @@ export default function ModalLogin() {
                 Login
             </button>
 
-            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade fw-bold" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="d-flex justify-content-end">
@@ -20,16 +20,16 @@ export default function ModalLogin() {
                                 <div className="container">
                                     <img className="modal-logo" src={Binar}/>
                                 </div>
-                                <h1>Join the fun!</h1>
-                                Create a free account to save your progress, add games to favorites and build your profile!
+                                <h1 className="text-title">Join the fun!</h1>
+                                <h6 className="mt-2">Create a free account to save your progress, add games to favorites and build your profile!</h6>
                             </div>
                         </div>
-                        <div className=" d-flex row justify-content-center py-2">
+                        <div className=" d-flex row justify-content-center">
                             <div>
-                                <button type="button" className="modal-edit btn btn-outline-warning">Create an account</button>
+                                <button type="button" className="modal-edit btn btn-outline-warning fw-bold">Create an account</button>
                             </div>
                             <div>
-                                <button type="button" className="modal-edit btn btn-outline-warning mt-3 mb-3">Sign in</button>
+                                <button type="button" className="modal-edit btn btn-outline-warning mt-3 mb-4 fw-bold">Sign in</button>
                             </div>
                         </div>
                     </div>

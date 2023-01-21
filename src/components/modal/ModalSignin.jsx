@@ -7,23 +7,23 @@ export default function ModalSignin() {
                 Sign In
             </button>
 
-            <div className="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
+            <div className="modal fade fw-bold" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                     <div className="d-flex justify-content-end">
                             <button type="button" className="btn text-white d-flex" data-bs-dismiss="modal" aria-label="Close">X</button>
                         </div>
                         <div className="modal-body">
-                            <h1 className="text-white mb-4 mt-3">Sign In</h1>
-                            <div className="d-flex row justify-content-center">
-                                <button type="button" className="modal-button btn btn-warning">
+                            <h1 className="text-white mb-4 mt-3 text-title">Sign In</h1>
+                            <div className="d-flex row justify-content-center mx-3">
+                                <button type="button" className="modal-button btn btn-outline-warning fw-bold">
                                     Continue with Google</button>
-                                <button type="button" className="modal-button btn btn-warning mt-3">Continue with Facebook</button>
+                                <button type="button" className="modal-button btn btn-outline-warning mt-3 fw-bold">Continue with Facebook</button>
                             </div>
-                            <div className="text-white py-4">
+                            <div className="text-white py-2">
                                 or sign in with email
                             </div>
-                            <form>
+                            <form className="pe-5 ps-5 form-padding">
                                 <fieldset>
                                     <div>
                                         <input type="email" className="form-control" placeholder="Email"/>
@@ -34,14 +34,16 @@ export default function ModalSignin() {
                                 </fieldset>
                             </form>
                             <div className="text-white py-3">
-                                i forget my password
+                                <a className="forget-password" href="">
+                                    i forget my password
+                                </a>
                             </div>
-                            <div className="">
-                                <button type="button" className="modal-button btn btn-warning py-2">Login</button>
+                            <div className="mx-3">
+                                <button type="button" className="modal-button btn btn-outline-warning py-2 fw-bold">Login</button>
                             </div>
                             <div className="d-flex justify-content-center mt-3">
                                 <h6 className="text-white">No account yet?</h6>
-                                <a href="">
+                                <a className="text-link ms-2" href="">
                                     Register Now!
                                 </a>
                             </div>

@@ -1,12 +1,10 @@
 import React from "react"
 import ProfileComponent from "../components/profile/ProfileComponent"
-import Navbar from "../components/navbar/navbar"
 
 export default function Profile() {
     return(
-        <>
-            <Navbar />
+        <div className="vh-100">
             <ProfileComponent />
-        </>
+        </div>
     )
 }

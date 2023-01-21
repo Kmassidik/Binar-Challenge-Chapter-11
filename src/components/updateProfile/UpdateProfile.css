@@ -9,6 +9,10 @@
     margin-bottom: 1rem;
 }
 
+.update-profile .modal-button:hover {
+    background: #f7b04c !important;
+}
+
 .update-profile .modal-logo {
     width: 100px;
 }
@@ -30,8 +34,8 @@
 }
 
 .update-profile form img {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     border-radius: 100%;
     margin-bottom: 1rem;
 
@@ -40,9 +44,20 @@
 .update-profile form input {
     width: 100%;
     padding: 1rem;
-    border-radius: 30px;
+    border-radius: 8px;
     border: none;
     height: 2rem;
-    margin-bottom: 1rem;
+}
 
+.update-profile form .form-top {
+    width: 100%;
+}
+
+.update-profile button:hover {
+    background-color: #3400c4 !important;
+    color: #fff !important;
+}
+
+.update-profile .para {
+    text-align: left;
 }
