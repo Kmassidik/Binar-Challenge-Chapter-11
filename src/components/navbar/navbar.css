@@ -1,14 +1,11 @@
 .fontNav{
     font-family: Verdana, Geneva, sans-serif!important;
     font-weight: 800;
-    font-space: 
-    /* color: green!important; */
   }
 
 .fontNav2{
   font-family: Verdana, Geneva, sans-serif;
   font-weight: 400
-  /* color: #933093!important */
 }
 
 .nav-link:hover {
