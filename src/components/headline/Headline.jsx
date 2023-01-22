@@ -7,7 +7,7 @@ export default function Content(){
         <>
             <div className="container-fluid" style={{"maxnHeight":"85vh"}}>
                 <div className="row mx-5">
-                    <div className="col-6 mt-5">
+                    <div className="col-8 mt-5">
                         <h1 className="d-flex display-5 fw-bold lh-1 mb-3 justify-content-start ">
                             Lets Have Fun!
                         </h1>
@@ -20,7 +20,7 @@ export default function Content(){
                             <button type="button" className="button-hover btn btn-outline-custom fw-bold">Play Now</button>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-sm-6 mt-3">
+                    <div className="col-4 mt-3">
                         <img src={hero} alt="let's play" width={300} />
                     </div>
                 </div>

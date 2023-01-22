@@ -1,6 +1,35 @@
-import React from "react"
+import React, { useState } from "react"
+import authFirebase from "../../services/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function ModalSignin() {
+    const [state, setState] = useState({
+        email: "",
+        password: ""
+      });
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setState((prevProps) => ({
+        ...prevProps,
+        [name]: value
+        }));
+    };
+    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(state);
+        signInWithEmailAndPassword(authFirebase, state.email, state.password)
+            .then((userCredential) => {
+                const jwtToken = userCredential.user.accessToken
+                localStorage.setItem("accesstoken",jwtToken )
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                console.log(errorMessage);
+            });
+    };
     return(
         <>
             <div className="modal fade fw-bold" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdrop1Label" aria-hidden="true">
@@ -13,23 +42,23 @@ export default function ModalSignin() {
                             <h1 className="text-white mb-4 mt-3 text-title">Sign In</h1>
                             <div className="d-flex row justify-content-center mx-3">
                             </div>
-                            <form className="pe-5 ps-5 form-padding">
+                            <form className="pe-5 ps-5" onSubmit={handleSubmit}>
                                 <fieldset>
                                     <div>
-                                        <input type="email" className="form-control" placeholder="Email"/>
+                                        <input name="email" value={state.email} onChange={handleInputChange} type="email" className="form-control" placeholder="Email"/>
                                     </div>
                                     <div>
-                                        <input type="password" className="form-control mt-2" placeholder="Password"/>
+                                        <input name="password" value={state.password} onChange={handleInputChange} type="password" className="form-control mt-2" placeholder="Password"/>
                                     </div>
                                 </fieldset>
+                                <div className="mx-3 mt-3">
+                                    <button type="submit" className="modal-button btn btn-outline-warning py-2 fw-bold">Login</button>
+                                </div>
                             </form>
                             <div className="text-white py-3">
                                 <a className="forget-password" href="">
                                     i forget my password
                                 </a>
-                            </div>
-                            <div className="mx-3">
-                                <button type="button" className="modal-button btn btn-outline-warning py-2 fw-bold">Login</button>
                             </div>
                             <div className="d-flex justify-content-center justify-content-sm-evenly mt-3">
                             </div>
