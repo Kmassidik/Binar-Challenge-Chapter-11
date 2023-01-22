@@ -1,11 +1,13 @@
 import React from "react"
-import Binar from "../modal/binar.png"
+import Binar from "./binar.png"
+import Acc from "./acc.png"
 import "./modal.css"
 
 export default function ModalLogin() {
     return(
         <>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" className="login-button btn btn-outline-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
+                <img className="mb-1" width={20} src={Acc} alt="" />
                 Login
             </button>
 
