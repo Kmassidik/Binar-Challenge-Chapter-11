@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function ModalSignup() {
     const [state, setState] = useState({
@@ -14,6 +15,8 @@ export default function ModalSignup() {
         [name]: value
         }));
     };
+
+    const navigate = useNavigate()
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,6 +25,7 @@ export default function ModalSignup() {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("=> ini user",user);
+            navigate(0)
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -38,7 +42,7 @@ export default function ModalSignup() {
                             <button type="button" className="btn text-white d-flex" data-bs-dismiss="modal" aria-label="Close">X</button>
                         </div>
                         <div className="modal-body">
-                            <h1 className="text-white mb-4 mt-3 text-title">Sign Up</h1>
+                            <h1 className="text-white mb-4 mt-3 text-title">Register</h1>
                             <form className="pe-5 ps-5" onSubmit={handleSubmit}>
                                 <fieldset>
                                     <div>
@@ -60,10 +64,10 @@ export default function ModalSignup() {
                                     I accept the Terms & Conditions and Privacy
                                 </label>
                             </div>
-                            <div className="d-flex justify-content-center mt-3">
+                            <div className="d-flex justify-content-center">
                                 <h6 className="text-white">Already registered?</h6>
                                 <a className="text-link ms-2 fw-bold" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                                    Sign in
+                                    Login
                                 </a>
                             </div>
                         </div>
