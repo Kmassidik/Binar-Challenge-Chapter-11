@@ -7,6 +7,7 @@ import Leaderboard from "./pages/Leaderboard"
 import Games from "./pages/games/Games";
 import LandingGame from "./pages/landingGame/LandingGames";
 import { Navbar, Footer } from "./components";
+import Leader from "./components/leaderboard/Leaderboard"
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/games" element={<Games />} />
           <Route path="/LandingGames" element={<LandingGame />} />
+          <Route path="/Leader" element={<Leader />} />
         </Routes>
       <Footer />
       </BrowserRouter>
