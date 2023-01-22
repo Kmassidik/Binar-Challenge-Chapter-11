@@ -1,10 +1,13 @@
 import React from "react"
+<<<<<<< HEAD
 import { Box, Footer, Headline, Navbar, VideoUpload, VideoPlayer } from "../components"
+=======
+import { Box, Footer, Headline, } from "../components"
+>>>>>>> 994df6abaa6dcdb3f9656123af61d0859e335ae8
 
 export default function Home() {
     return(
         <>
-            <Navbar/>
             <div className="mb-3 mt-3">
                 <Headline/>
             </div>
