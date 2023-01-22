@@ -1,12 +1,15 @@
 import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function ModalSignin() {
     const [state, setState] = useState({
         email: "",
         password: ""
       });
+    const navigate = useNavigate()
+    
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setState((prevProps) => ({
@@ -14,6 +17,7 @@ export default function ModalSignin() {
         [name]: value
         }));
     };
+
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,6 +26,8 @@ export default function ModalSignin() {
             .then((userCredential) => {
                 const jwtToken = userCredential.user.accessToken
                 localStorage.setItem("accesstoken",jwtToken )
+                console.log(jwtToken)
+                navigate(0)
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -39,7 +45,7 @@ export default function ModalSignin() {
                             <button type="button" className="btn text-white d-flex" data-bs-dismiss="modal" aria-label="Close">X</button>
                         </div>
                         <div className="modal-body">
-                            <h1 className="text-white mb-4 mt-3 text-title">Sign In</h1>
+                            <h1 className="text-white mb-4 mt-3 text-title">Login</h1>
                             <div className="d-flex row justify-content-center mx-3">
                             </div>
                             <form className="pe-5 ps-5" onSubmit={handleSubmit}>
@@ -60,9 +66,7 @@ export default function ModalSignin() {
                                     i forget my password
                                 </a>
                             </div>
-                            <div className="d-flex justify-content-center justify-content-sm-evenly mt-3">
-                            </div>
-                            <div className="d-flex justify-content-center mt-3">
+                            <div className="d-flex justify-content-center">
                                 <h6 className="text-white">No account yet?</h6>
                                 <a  
                                     className="text-link ms-2" 
