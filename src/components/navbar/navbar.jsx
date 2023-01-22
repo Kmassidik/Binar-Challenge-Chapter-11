@@ -10,11 +10,16 @@ export default function Navbar() {
     const activeLink = ({isActive}) => (isActive ?  "active nav-link fontNav2 me-2" : "nav-link fontNav2 me-2" )
     const [isUser, setUser] = useState()
 
-    const test = () => {
-        setUser(true)
+    const Authen = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+            setUser(false)
+        } else{
+            setUser(true)
+        }
     }
     useEffect(() =>{
-        test()
+        Authen()
     })
     return(
         <>
