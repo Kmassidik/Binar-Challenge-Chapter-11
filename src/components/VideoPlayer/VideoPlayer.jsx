@@ -6,7 +6,7 @@ export default function VideoPlayer() {
         id: 1,
         title: "Video One",
         videoUrl:
-          "https://res.cloudinary.com/dtochq6ko/video/upload/v1674307467/GameVideo/20230121_211850_lpbu1j.mp4",
+          "https://res.cloudinary.com/dtochq6ko/video/upload/v1674370017/GameVideo/Games_-_Google_Chrome_2023-01-22_13-41-07_1_n1lbyg.3gp",
       },
     ]
   
@@ -27,19 +27,14 @@ export default function VideoPlayer() {
   
     return (
       <div>
-
-        <h1 className='text-center'>Cloudinary Video Show</h1>
-        <div className='container'>
+        <div className='container d-flex justify-content-center mt-4'>
           <div className='row'>
             {mediaUrls.map((media) => (
-              <div key={media.id} className='col-lg-4 col-sm-6 mb-4'>
-                <div className='card h-100'>
-                  <div className='card-body'>
-                    <h4 className='card-title'>{media.title}</h4>
+              <div key={media.id} className='col-12'>
+                <div className='container-fluid'>
                     <video
                       // controls
-                      width="320"
-                      height="240"
+                      width="100%"
                       muted
                       autoPlay
                       loop
@@ -48,7 +43,6 @@ export default function VideoPlayer() {
                     >
                       <source src={media.videoUrl} type="video/mp4"/>
                     </video>
-                  </div>
                 </div>
               </div>
             ))}

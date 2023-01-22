@@ -58,3 +58,11 @@
 .login-button {
     border: none;
 }
+
+.logo-border {
+    border-radius: 30px;
+}
+
+.logo-border:hover {
+    background-color: none;
+}

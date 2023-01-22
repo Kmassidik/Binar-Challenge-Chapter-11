@@ -12,12 +12,6 @@ export default function ModalSignin() {
                         <div className="modal-body">
                             <h1 className="text-white mb-4 mt-3 text-title">Sign In</h1>
                             <div className="d-flex row justify-content-center mx-3">
-                                <button type="button" className="modal-button btn btn-outline-warning fw-bold">
-                                    Continue with Google</button>
-                                <button type="button" className="modal-button btn btn-outline-warning mt-3 fw-bold">Continue with Facebook</button>
-                            </div>
-                            <div className="text-white py-2">
-                                or sign in with email
                             </div>
                             <form className="pe-5 ps-5 form-padding">
                                 <fieldset>
@@ -36,6 +30,8 @@ export default function ModalSignin() {
                             </div>
                             <div className="mx-3">
                                 <button type="button" className="modal-button btn btn-outline-warning py-2 fw-bold">Login</button>
+                            </div>
+                            <div className="d-flex justify-content-center justify-content-sm-evenly mt-3">
                             </div>
                             <div className="d-flex justify-content-center mt-3">
                                 <h6 className="text-white">No account yet?</h6>
