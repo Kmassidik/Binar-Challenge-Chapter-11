@@ -1,38 +1,38 @@
-import { useRef } from "react";
-import jsPDF from "jspdf";
-import ProfileComponent from "../profile/ProfileComponent";
+/* eslint-disable no-mixed-spaces-and-tabs */
+
+import React from "react";
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable"
 
 
-function ButtonDownload() {
-	const reportTemplateRef = useRef(null);
+ 
+export default function getPdf() {
+  function generateSimplePDF() {
+    const doc = new jsPDF();
+    doc.text("Game Binar", 14, 10);
 
-	const handleGeneratePdf = () => {
-		const doc = new jsPDF({
-			format: "a3",
-			unit: "px",
-            orientation: "landscape"
-		});
-
-		// Adding the fonts.
-		doc.setFont("Inter-Regular", "normal");
-
-		doc.html(reportTemplateRef.current, {
-			async callback(doc) {
-				await doc.save("document");
-			},
-		});
-	};
-
-	return (
-		<div>
-			<button className="button" onClick={handleGeneratePdf}>
-				Generate PDF
-			</button>
-			<div ref={reportTemplateRef}>
-				<ProfileComponent/>
-			</div>
-		</div>
-	);
+	doc.text("Hartono Nathanza", 150, 10);
+    doc.setFont("courier")
+ 
+    autoTable(doc, {
+		head: [["userId", "Total Game", "Total Point"]],
+		body: [
+		  ["1R7m3CWhdBTuLCe6Njnopw224j62", "1", "10"],
+		  ["R7m3CWhdBTuLCe6Njnopw224j62", "2", "14"],
+		  ["R7m3CWhdBTuLCe6Njnopw224j62", "3", "32"],
+		  ["R7m3CWhdBTuLCe6Njnopw224j62", "4", "5"],
+		  ["R7m3CWhdBTuLCe6Njnopw224j62", "5", "24"],
+		  ["R7m3CWhdBTuLCe6Njnopw224j62", "6", "21"],
+		  // ...
+		],
+	  })
+	  
+    doc.save("Document.pdf");
+  }
+ 
+  return (
+    <div className="App">
+      <button className="btn border btn-sm mt-2 mb-3 " onClick={generateSimplePDF}>Download Your Data</button>
+    </div>
+  );
 }
-
-export default ButtonDownload;
