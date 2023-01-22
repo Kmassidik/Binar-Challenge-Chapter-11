@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import ModalFailed from "./ModalFailed"
 
 export default function ModalSignin() {
     const [state, setState] = useState({
@@ -21,19 +22,14 @@ export default function ModalSignin() {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(state);
         signInWithEmailAndPassword(authFirebase, state.email, state.password)
             .then((userCredential) => {
                 const jwtToken = userCredential.user.accessToken
                 localStorage.setItem("accesstoken",jwtToken )
-                console.log(jwtToken)
                 navigate(0)
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode);
-                console.log(errorMessage);
+            .catch(() => {
+                <ModalFailed/>
             });
     };
     return(

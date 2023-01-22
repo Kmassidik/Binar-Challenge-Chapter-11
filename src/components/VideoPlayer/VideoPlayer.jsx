@@ -10,21 +10,6 @@ export default function VideoPlayer() {
       },
     ]
   
-    // handle mouse enter
-    // const handleMouseEnter = (e) => {
-    //   const vid = e.target
-    //   vid.muted = true
-    //   vid.play()
-    // }
-  
-    // handle mouse leave
-    // const handleMouseLeave = (e) => {
-    //   const vid = e.target
-    //   vid.muted = false
-    //   vid.currentTime = 0
-    //   vid.pause()
-    // }
-  
     return (
       <div>
         <div className='container d-flex justify-content-center mt-4'>
@@ -33,13 +18,10 @@ export default function VideoPlayer() {
               <div key={media.id} className='col-12'>
                 <div className='container-fluid'>
                     <video
-                      // controls
                       width="100%"
                       muted
                       autoPlay
                       loop
-                      // onMouseEnter={handleMouseEnter}
-                      // onMouseLeave={handleMouseLeave}
                     >
                       <source src={media.videoUrl} type="video/mp4"/>
                     </video>

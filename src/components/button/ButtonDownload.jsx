@@ -1,10 +1,7 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 
 import React from "react";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable"
-
-
  
 export default function getPdf() {
   function generateSimplePDF() {
@@ -14,19 +11,17 @@ export default function getPdf() {
 	doc.text("Hartono Nathanza", 150, 10);
     doc.setFont("courier")
  
-    autoTable(doc, {
-		head: [["userId", "Total Game", "Total Point"]],
-		body: [
-		  ["1R7m3CWhdBTuLCe6Njnopw224j62", "1", "10"],
-		  ["R7m3CWhdBTuLCe6Njnopw224j62", "2", "14"],
-		  ["R7m3CWhdBTuLCe6Njnopw224j62", "3", "32"],
-		  ["R7m3CWhdBTuLCe6Njnopw224j62", "4", "5"],
-		  ["R7m3CWhdBTuLCe6Njnopw224j62", "5", "24"],
-		  ["R7m3CWhdBTuLCe6Njnopw224j62", "6", "21"],
-		  // ...
-		],
-	  })
-	  
+    autoTable(doc, 
+      { head: [["userId", "Total Game", "Total Point"]],
+      body: [
+        ["1R7m3CWhdBTuLCe6Njnopw224j62", "1", "10"],
+        ["R7m3CWhdBTuLCe6Njnopw224j62", "2", "14"],
+        ["R7m3CWhdBTuLCe6Njnopw224j62", "3", "32"],
+        ["R7m3CWhdBTuLCe6Njnopw224j62", "4", "5"],
+        ["R7m3CWhdBTuLCe6Njnopw224j62", "5", "24"],
+        ["R7m3CWhdBTuLCe6Njnopw224j62", "6", "21"],
+      ],
+    })
     doc.save("Document.pdf");
   }
  

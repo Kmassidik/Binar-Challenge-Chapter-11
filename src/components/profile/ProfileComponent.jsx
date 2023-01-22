@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { ref, child, get } from "firebase/database"
 import authFirebase, { database } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
+import ModalFailed from "../modal/ModalFailed"
 
 
 const ProfileComponent = () => {
@@ -19,7 +20,6 @@ const navigate = useNavigate()
 
 const authenticate = () => {onAuthStateChanged(authFirebase, (user) => {
     if (user) {
-          console.log(user)
           setUserId(user.uid)
           setEmail(user.email)
     } else {
@@ -32,11 +32,10 @@ const fetchFirebase = async () => {
     try {
         const db = await get(child(ref(database),`${userId}/UserProfile`)) 
         const item = db.val() 
-        console.log(item)
         setUserName(item.userName)
         setImgUrl(item.imgUrl)
     } catch (error) {
-        console.log(error);
+        <ModalFailed/>
     }
 }
 
