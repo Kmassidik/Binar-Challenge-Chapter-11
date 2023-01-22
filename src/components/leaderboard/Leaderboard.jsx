@@ -7,7 +7,7 @@ export default function Leaderboard(){
             <div className="container-fluid">
                 <section className="container">
                     <div className="mt-5 mx-5" style={{"height":"80vh"}}>
-                        <div className="mt-1 fs-1 fw-bold">Leaderboard</div>
+                        <div className="mt-1 fs-1 fw-bold">Leaderboard Test</div>
                         <div className="container mt-3">
                             <div className="py-2">
                                 <div className="d-flex justify-content-evenly border border-dark border-2 rounded py-3">
