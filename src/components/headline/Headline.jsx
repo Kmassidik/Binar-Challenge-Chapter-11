@@ -7,18 +7,20 @@ export default function Content(){
         <>
             <div className="container-fluid" style={{"maxnHeight":"85vh"}}>
                 <div className="row mx-5">
-                    <div className="col-8 mt-5">
-                        <h1 className="d-flex display-5 fw-bold lh-1 mb-3 justify-content-center">Time To Play!</h1>
-                        <p className="lead justify-content-md-start">
+                    <div className="col-6 mt-5">
+                        <h1 className="d-flex display-5 fw-bold lh-1 mb-3 justify-content-start ">
+                            Lets Have Fun!
+                        </h1>
+                        <p className="lead text-lg-start lh-md my-1">
                             Today, you are still confused about where to play free online games? Oh, not really! 
                             Just use our game feature from binargame. Just click on the link, then choose the game you want to play, and play it for free. 
                             Very easy right?
                         </p>
-                        <div className="d-flex justify-content-center btn-lg">
-                            <button type="button" className="button-hover btn btn-outline-warning fw-bold">Play Now</button>
+                        <div className="d-flex btn-lg mt-4">
+                            <button type="button" className="button-hover btn btn-outline-custom fw-bold">Play Now</button>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-sm-4">
+                    <div className="col-lg-6 col-sm-6 mt-3">
                         <img src={hero} alt="let's play" width={300} />
                     </div>
                 </div>
