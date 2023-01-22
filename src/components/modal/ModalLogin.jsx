@@ -32,7 +32,7 @@ export default function ModalLogin() {
                                     data-bs-toggle="modal" 
                                     data-bs-target="#staticBackdrop2"
                                 >
-                                    Create an account
+                                    Register
                                 </button>
                             </div>
                             <div>
@@ -42,7 +42,7 @@ export default function ModalLogin() {
                                     data-bs-toggle="modal" 
                                     data-bs-target="#staticBackdrop1"
                                 >
-                                    Sign in
+                                    Login
                                 </button>
                             </div>
                         </div>
