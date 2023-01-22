@@ -5,6 +5,7 @@ import ModalLogin from "../modal/ModalLogin"
 import ModalSignup from "../modal/ModalSignup"
 import ModalSignin from "../modal/ModalSignin"
 import { Link, NavLink } from "react-router-dom"
+import ModalFailed from "../modal/ModalFailed"
 
 export default function Navbar() {
     const activeLink = ({isActive}) => (isActive ?  "active nav-link fontNav2 me-2" : "nav-link fontNav2 me-2" )
@@ -65,6 +66,7 @@ export default function Navbar() {
                         <ModalLogin/>
                         <ModalSignin />
                         <ModalSignup />
+                        <ModalFailed/>
                     </div>
                 </div>
             </div>
