@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import "./UpdateProfile.css"
 import { useNavigate } from "react-router-dom"
 import { onAuthStateChanged } from "firebase/auth";
-import { ref, set } from "firebase/database"
+import { ref, set, child, get } from "firebase/database"
 import authFirebase, { database } from "../../services/firebase";
 
 // import cloudinary from "cloudinary/lib/cloudinary"
@@ -31,8 +31,20 @@ const UpdateProfile = (props) => {
     })
 }
 
+    const fetchFirebase = async () => {
+        try {
+            const db = await get(child(ref(database),`${userId}/UserProfile`)) 
+            const item = db.val() 
+            setImgData(item.imgUrl)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     useEffect (() => {
         authenticate()
+        fetchFirebase()
     }, [])
 
     const handleSubmit = (e) => {
@@ -65,7 +77,7 @@ const UpdateProfile = (props) => {
             })
                 .then((res) => res.json())
                 .then((data) => { 
-                    setImgData(data) 
+                    setImgData(data.url) 
                 }).catch((err) => {
                     alert(err);
                 })    
@@ -91,7 +103,7 @@ const UpdateProfile = (props) => {
                                     <h5>Your name and profile picture in Binar Games</h5>
                                 </div>
                                 <div className="form-top mb-4 d-flex flex-row justify-content-center align-items-center">
-                                    <img src={imgData.url} alt="profie" />
+                                    <img src={imgData} alt="profie" />
                                     <div className="d-flex flex-column justify-content-center align-items-start m-3 ms-4">
                                         <p className="para mb-3">Add a photo for your responses, comments, and reviews</p>
                                             <input className="input-image mb-3"
