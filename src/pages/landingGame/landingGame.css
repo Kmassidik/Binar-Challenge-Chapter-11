@@ -1,0 +1,15 @@
+.button-games:hover {
+    color: white !important;
+}
+
+.button-games {
+    border-radius: 30px;
+    width: 30%;
+}
+
+
+.game-detail {
+    text-align: justify;
+    border-radius: 15px;
+    letter-spacing: 1.5px
+}
