@@ -10,7 +10,7 @@ export default function LandingGame() {
             <div className="container-fluid" style={{"minHeight":"100vh"}}>
                 <VideoPlayer/>
                 <div>
-                    <button type="button" className="button-games btn btn-outline-warning mt-4 fw-bold">Play Now</button>
+                    <button type="button" className="button-games btn btn-outline-warning mt-4 fw-bold" href="/games">Play Now</button>
                 </div>
             </div>
 

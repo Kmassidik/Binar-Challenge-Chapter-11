@@ -4,7 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile"
 import Leaderboard from "./pages/Leaderboard"
-import Games from "./pages/Games";
+import Games from "./pages/games/Games";
 import LandingGame from "./pages/landingGame/LandingGames";
 import { Navbar, Footer } from "./components";
 
