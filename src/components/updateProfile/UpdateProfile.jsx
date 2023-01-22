@@ -43,7 +43,7 @@ const UpdateProfile = (props) => {
         
         set(ref(database,`${userId}/UserProfile`), userProfile)
         alert("Data successfully posted, browww!")
-        // navigate(0)
+        navigate(0)
     }
 
     const handleImageChange = async (e) => {
