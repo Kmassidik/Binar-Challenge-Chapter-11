@@ -11,13 +11,6 @@ export default function ModalSignup() {
                         </div>
                         <div className="modal-body">
                             <h1 className="text-white mb-4 mt-3 text-title">Sign Up</h1>
-                            <div className="d-flex row justify-content-center mx-3">
-                                <button type="button" className="modal-button btn btn-outline-warning fw-bold">Continue with Google</button>
-                                <button type="button" className="modal-button btn btn-outline-warning mt-3 fw-bold">Continue with Facebook</button>
-                            </div>
-                            <div className="text-white py-2">
-                                or sign up with email
-                            </div>
                             <form className="pe-5 ps-5">
                                 <fieldset>
                                     <div>
