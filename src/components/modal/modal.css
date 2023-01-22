@@ -19,7 +19,6 @@
 .text-link {
     text-decoration: none;
     color: #f99d1c;
-
 }
 
 .text-title {
@@ -46,6 +45,11 @@
     color: white !important;
 }
 
+.image-failed {
+    width: 150px;
+    border-radius: 30px;
+}
+
 .forget-password {
     text-decoration: none;
     color: #f99d1c;
@@ -56,5 +60,13 @@
 }
 
 .login-button {
-    border-top-left-radius: 30px;
+    border: none;
+}
+
+.logo-border {
+    border-radius: 30px;
+}
+
+.logo-border:hover {
+    background-color: none;
 }

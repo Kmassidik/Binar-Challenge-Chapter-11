@@ -1,26 +1,30 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile"
-import Leaderboard from "./pages/Leaderboard"
-import Games from "./pages/Games";
-import { Navbar } from "./components";
-import Footer from "./components/footer/footer";
+import {
+  GameDetails, 
+  Games, 
+  Home, 
+  Leaderboard,
+  Profile,
+} from "./pages"
+import { Navbar, Footer } from "./components";
+
+
 
 function App() {
   return (
     <div className="App">
-      test
       <BrowserRouter>
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/games" element={<Games />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Leaderboard" element={<Leaderboard />} />
+          <Route path="/Games" element={<Games />} />
+          <Route path="/Gamadetails" element={<GameDetails />} />
         </Routes>
-        <Footer />
+      <Footer />
       </BrowserRouter>
     </div>
   );

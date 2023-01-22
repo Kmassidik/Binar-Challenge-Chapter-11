@@ -1,14 +1,12 @@
 import React, {useState} from "react"
-import Navbar from "../navbar/navbar"
-
+import ModalFailed from "../modal/ModalFailed"
 
 export default function VideoPlayer() {
     const [image, setImage] = useState(" ")
     const [video, setVideo] = useState(" ")
-
+    const [isData, setData] = useState(" ")
 
     const submitImage = () => {
-        // console.log(files[0]);
         const data = new FormData()
         data.append("file", image)
         data.append("upload_preset", "profileIMG")
@@ -19,15 +17,15 @@ export default function VideoPlayer() {
             body: data
         })
             .then((res) => res.json())
-            // .then((data) => {
-            //     console.log(data);
-            // }).catch((err) => {
-            //     console.log(err);
-            // })
+            .then((data) => { 
+                setData(data) 
+            }).catch(() => {
+                <ModalFailed/>
+                isData
+            })
     }
 
     const submitVideo = () => {
-        // console.log(files[0]);
         const data = new FormData()
         data.append("file", video)
         data.append("upload_preset", "profileVID")
@@ -46,7 +44,6 @@ export default function VideoPlayer() {
     }
     return (
         <>
-            <Navbar/>
             <div>
                 <h2>Image Upload</h2>
                 <input

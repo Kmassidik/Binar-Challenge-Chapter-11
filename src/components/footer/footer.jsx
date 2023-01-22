@@ -30,15 +30,15 @@ export default function Footer() {
                   </div>
                   <div className="border w-100 d-flex"></div>
                     <div className="row pt-lg-2 pb-lg-3 d-flex column-xs-reverse">
-                      <div className="footer-font col d-flex text-capitalize opacity-25 justify-content-lg-start justify-content-sm-center item-xs-center">
-                        © 2018 Your Games, Inc. All Rights Reserved
+                      <div className="footer-font col d-flex text-capitalize opacity-25 justify-content-lg-start justify-content-sm-center">
+                        © 2023 Your Games, Inc. All Rights Reserved
                       </div>
-                      <div className="col-lg d-flex justify-content-lg-end small justify-content-sm-center item-xs-center ">
-                        <a href="" className="fw-bold d-flex align-items-center footer-font footer-end">Privacy Policy</a>
+                      <div className="col-lg d-flex justify-content-lg-end small justify-content-sm-center">
+                        <a href="" className="fw-bold d-flex align-items-center footer-font footer-end text-black">Privacy Policy</a>
                           <span>&nbsp;|&nbsp;</span> 
-                        <a href="" className="fw-bold d-flex align-items-center footer-font footer-end">Terms of Services</a>
+                        <a href="" className="fw-bold d-flex align-items-center footer-font footer-end text-black">Terms of Services</a>
                           <span>&nbsp;|&nbsp;</span>
-                        <a href="" className="fw-bold d-flex align-items-center footer-font footer-end">Code of Conduct</a>
+                        <a href="" className="fw-bold d-flex align-items-center footer-font footer-end text-black">Code of Conduct</a>
                       </div>
                     </div>
                   </div>

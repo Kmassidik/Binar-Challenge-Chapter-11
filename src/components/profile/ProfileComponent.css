@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: center;
 
+    width: 100%;
 }
 
 .profile .profile__content {
@@ -24,7 +25,7 @@
     height: 100%;
 }
 
-.profile .profile__content .profile__picture img {
+.profile .profile__content .profile__picture .profile-img {
     width: 100%;
     height: 100%;
 }
@@ -94,3 +95,48 @@
     height: 84px;
 }
 
+@media screen and (max-width: 1050px) {
+    .profile .profile__content .profile__desc .profile__achievements {
+        padding-top: 2rem;
+    }
+
+    .profile .profile__content .profile__desc .profile__achievements .profile__achievements-emblem img {
+        height: 30px;
+    }
+
+    .profile .profile__content .profile__picture {
+        width: 40%;
+        height: 100%;
+    }
+
+    .profile .profile__content .profile__desc {
+    width: 60%;
+    height: 100%;
+}
+}
+
+@media screen and (max-width: 550px) {
+    .profile {
+        padding: 0 1rem;
+    }
+
+    .profile .profile__content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .profile .profile__content .profile-picture {
+        width: 100%;
+    }
+
+    .profile .profile__content .profile__desc {
+        width: 100%;
+    }
+
+    .profile .profile__content .profile__desc .profile__achievements {
+        margin-bottom: 2rem;
+    }
+
+}

@@ -1,16 +1,31 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Binar from "./binar.png"
-import Acc from "./acc.png"
 import "./modal.css"
 
 export default function ModalLogin() {
+    const [isLogin, setLogin] = useState()
+    const Authen = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+            setLogin(false)
+        } else{
+            setLogin(true)
+        }
+    }
+    useEffect(() =>{
+        Authen()
+    })
     return(
         <>
-            <button type="button" className="login-button btn btn-outline-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
-                <img className="mb-1" width={20} src={Acc} alt="" />
+        { isLogin ? 
+        <button type="button" className="login-button btn btn-outline-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop5"> 
+                Logout
+        </button> :
+        <button type="button" className="login-button btn btn-outline-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
                 Login
-            </button>
-
+        </button>
+        }
+            
             <div className="modal fade fw-bold" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -28,10 +43,24 @@ export default function ModalLogin() {
                         </div>
                         <div className=" d-flex row justify-content-center">
                             <div>
-                                <button type="button" className="modal-edit btn btn-outline-warning fw-bold">Create an account</button>
+                                <button 
+                                    type="button" 
+                                    className="modal-edit btn btn-outline-warning fw-bold" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#staticBackdrop2"
+                                >
+                                    Register
+                                </button>
                             </div>
                             <div>
-                                <button type="button" className="modal-edit btn btn-outline-warning mt-3 mb-4 fw-bold">Sign in</button>
+                                <button
+                                    type="button" 
+                                    className="modal-edit btn btn-outline-warning mt-3 mb-4 fw-bold"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#staticBackdrop1"
+                                >
+                                    Login
+                                </button>
                             </div>
                         </div>
                     </div>
