@@ -3,39 +3,52 @@ import "./ProfileComponent.css"
 import UpdateProfile from "../updateProfile/UpdateProfile"
 import { FaCamera } from "react-icons/fa"
 import { onAuthStateChanged } from "firebase/auth";
-import authFirebase from "../../services/firebase";
+import { ref, child, get } from "firebase/database"
+import authFirebase, { database } from "../../services/firebase";
+import { useNavigate } from "react-router-dom";
+import ModalFailed from "../modal/ModalFailed"
+
 
 const ProfileComponent = () => {
 
 const [userId, setUserId] = useState("")
 const [userName, setUserName] = useState("")
 const [email, setEmail] = useState("")
+const [imgUrl, setImgUrl] = useState("")
 
+const navigate = useNavigate()
+
+const authenticate = () => {onAuthStateChanged(authFirebase, (user) => {
+    if (user) {
+          setUserId(user.uid)
+          setEmail(user.email)
+    } else {
+        navigate("/")
+    }
+})
+}
+
+const fetchFirebase = async () => {
+    try {
+        const db = await get(child(ref(database),`${userId}/UserProfile`)) 
+        const item = db.val() 
+        setUserName(item.userName)
+        setImgUrl(item.imgUrl)
+    } catch (error) {
+        <ModalFailed/>
+    }
+}
 
 useEffect (() => {
-    onAuthStateChanged(authFirebase, (user) => {
-        if (user) {
-            if (user.displayName == null) {
-                const u1 = user.email.substring(0, user.email.indexOf("@"))
-                const uName = u1.charAt(0).toUpperCase() + u1.slice(1)
-                setUserName(uName)
-              } else {
-                setUserName(user.displayName)
-              }
-
-              console.log(user)
-            
-              setUserId(user.uid)
-              setEmail(user.email)
-        }
-    })
-}, [userName])
+    fetchFirebase()
+    authenticate()
+}, [userId, userName, email, imgUrl])
 
   return (
     <div className="profile">
         <div className="profile__content">
             <div className="profile__picture">
-                    <img className="profile-img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="profile" />
+                    <img className="profile-img" src={imgUrl} alt="profile" />
                     <div className="edit-icon">
                     <UpdateProfile text={<FaCamera />} />
                     </div>
@@ -47,7 +60,6 @@ useEffect (() => {
                 <div className="profile__display-name">
                     <p>{userName}</p>
                     <br />
-                    user id: {userId}
                     <UpdateProfile text="Edit" />
                 </div>
                 <div className="profile__achievements">

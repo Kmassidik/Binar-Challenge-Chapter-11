@@ -1,11 +1,12 @@
 import React from "react"
 import ProfileComponent from "../components/profile/ProfileComponent"
-
+import Button from "../components/button/ButtonDownload"
 export default function Profile() {
     return(
         <>
             <div className="container-fluid mt-4">
                 <ProfileComponent />
+                
             </div>
             <div className="container">
                 <div className="row mx-3 my-5">
@@ -19,7 +20,7 @@ export default function Profile() {
                     </div>
                     <div className="col-6">
                         <div className="container border rounded-3" style={{"height":"500px",}}>
-                            <button type="button" class="btn border btn-sm mt-2 mb-3">Download your history</button>
+                            <Button/>
                         </div>
                     </div>
                 </div>

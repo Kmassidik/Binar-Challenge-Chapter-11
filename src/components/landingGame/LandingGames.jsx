@@ -1,12 +1,11 @@
 import React from "react";
-import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import "./landingGame.css"
 
 export default function LandingGame() {
 
     return(
         <>
-
             <div className="container-fluid" style={{"minHeight":"100vh"}}>
                 <VideoPlayer/>
                 <div>

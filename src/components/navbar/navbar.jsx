@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
 import logo from "./binar.png"
 import "./navbar.css"
-import ModalLogin from "../modal/ModalLogin"
-import ModalSignup from "../modal/ModalSignup"
-import ModalSignin from "../modal/ModalSignin"
 import { Link, NavLink } from "react-router-dom"
+import ModalLogin from "../modal/ModalLogin"
+import ModalSignin from "../modal/ModalSignin"
+import ModalSignup from "../modal/ModalSignup"
 import ModalFailed from "../modal/ModalFailed"
+import ModalLogout from "../modal/ModalLogout"
 
 export default function Navbar() {
     const activeLink = ({isActive}) => (isActive ?  "active nav-link fontNav2 me-2" : "nav-link fontNav2 me-2" )
@@ -46,7 +47,7 @@ export default function Navbar() {
                             { isUser && 
                             <>
                                 <li className="nav-item">
-                                    <NavLink NavLink className={activeLink} aria-current="page" to="/profile">
+                                    <NavLink className={activeLink} aria-current="page" to="/profile">
                                         Profile
                                     </NavLink>
                                 </li>
@@ -62,12 +63,13 @@ export default function Navbar() {
                             </>
                             }
                         </ul>
-                    <div className="d-flex">
-                        <ModalLogin/>
-                        <ModalSignin />
-                        <ModalSignup />
-                        <ModalFailed/>
-                    </div>
+                        <div className="d-flex">
+                            <ModalLogin/>
+                            <ModalSignin />
+                            <ModalSignup />
+                            <ModalFailed/>
+                            <ModalLogout/>
+                        </div>
                 </div>
             </div>
         </nav>

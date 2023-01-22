@@ -1,14 +1,31 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Binar from "./binar.png"
 import "./modal.css"
 
 export default function ModalLogin() {
+    const [isLogin, setLogin] = useState()
+    const Authen = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+            setLogin(false)
+        } else{
+            setLogin(true)
+        }
+    }
+    useEffect(() =>{
+        Authen()
+    })
     return(
         <>
-            <button type="button" className="login-button btn btn-outline-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
+        { isLogin ? 
+        <button type="button" className="login-button btn btn-outline-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop5"> 
+                Logout
+        </button> :
+        <button type="button" className="login-button btn btn-outline-secondary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
                 Login
-            </button>
-
+        </button>
+        }
+            
             <div className="modal fade fw-bold" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">

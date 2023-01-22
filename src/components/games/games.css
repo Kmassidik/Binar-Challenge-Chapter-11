@@ -1,15 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
-body{
-  color: black;
-  font-family: 'Roboto', sans-serif;
-}
-h1{
-    font-family: "Open Sans";
-    font-weight: bold !important;
-}
-.title{
-    color: #F9B23D;
-}
 .home {
   position: absolute;
   margin-top: 70px;
@@ -22,28 +10,6 @@ h1{
 }
 .point {
   position: absolute;
-}
-.facebook {
-  position: absolute;
-  margin-top: 100px;
-  margin-left: -50px;
-  width: 50px;
-}
-.twitter {
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 50px;
-}
-.whatsapp {
-  position: absolute;
-  margin-top: 100px;
-  margin-left: 140px;
-}
-.container{
-    padding-left:  9rem;
-    padding-right:  9rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0;
 }
 .option img {
     width: 6rem;
@@ -58,7 +24,7 @@ h1{
     font-family: "Open Sans";
     font-weight: bold !important;
     font-size: 144px;
-    color: red;
+    color: #933093;
     visibility: visible;
 }
 .result{
@@ -75,15 +41,14 @@ h1{
     animation: .8s box-animation linear infinite;
 }
 .win{
-background-color: #4C9654;
+background-color: #933093;
 }
 .draw {
-background-color: #035B0C;
+background-color: #933093;
 }
-
 .button-ingame {
-    color: #933093;
-    border-color: #933093;
+  color: #933093;
+  border-color: #933093;
 }
 .button-ingame:hover {
     color: white !important;
