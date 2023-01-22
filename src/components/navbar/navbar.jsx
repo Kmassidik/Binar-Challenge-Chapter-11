@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react"
 import logo from "./binar.png"
 import "./navbar.css"
 import { Link, NavLink } from "react-router-dom"
+import ModalLogin from "../modal/ModalLogin"
 
 export default function Navbar() {
     const activeLink = ({isActive}) => (isActive ?  "active nav-link fontNav2 me-2" : "nav-link fontNav2 me-2" )
     const [isUser, setUser] = useState()
-    const [isName, setName] = useState("")
 
     const Authen = () => {
         let storage = localStorage.getItem("accesstoken")
@@ -43,7 +43,7 @@ export default function Navbar() {
                             { isUser && 
                             <>
                                 <li className="nav-item">
-                                    <NavLink NavLink className={activeLink} aria-current="page" to="/profile">
+                                    <NavLink className={activeLink} aria-current="page" to="/profile">
                                         Profile
                                     </NavLink>
                                 </li>
@@ -59,6 +59,9 @@ export default function Navbar() {
                             </>
                             }
                         </ul>
+                        <div className="d-flex">
+                        <ModalLogin/>
+                    </div>
                 </div>
             </div>
         </nav>
