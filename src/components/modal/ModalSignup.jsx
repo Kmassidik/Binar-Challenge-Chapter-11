@@ -3,10 +3,6 @@ import React from "react"
 export default function ModalSignup() {
     return(
         <>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                Sign Up
-            </button>
-
             <div className="modal fade fw-bold" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -45,7 +41,7 @@ export default function ModalSignup() {
                             </div>
                             <div className="d-flex justify-content-center mt-3">
                                 <h6 className="text-white">Already registered?</h6>
-                                <a className="text-link ms-2 fw-bold" href="">
+                                <a className="text-link ms-2 fw-bold" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                                     Sign in
                                 </a>
                             </div>

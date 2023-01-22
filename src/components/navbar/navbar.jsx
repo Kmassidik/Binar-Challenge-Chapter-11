@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import logo from "./binar.png"
 import "./navbar.css"
 import ModalLogin from "../modal/ModalLogin"
@@ -6,14 +6,20 @@ import ModalSignup from "../modal/ModalSignup"
 import ModalSignin from "../modal/ModalSignin"
 import { Link, NavLink } from "react-router-dom"
 
-const activeLink = ({isActive}) => 
-(isActive ?  "active nav-link fontNav2 me-2" : "nav-link fontNav2 me-2" )
-
 export default function Navbar() {
+    const activeLink = ({isActive}) => (isActive ?  "active nav-link fontNav2 me-2" : "nav-link fontNav2 me-2" )
+    const [isUser, setUser] = useState()
+
+    const test = () => {
+        setUser(true)
+    }
+    useEffect(() =>{
+        test()
+    })
     return(
         <>
         <nav className="navbar navbar-expand-lg">
-            <div className="container-fluid">
+            <div className="container-fluid mx-5">
                 <nav className="navbar">
                     <div className="container-fluid">
                         <Link className="navbar-brand fontNav" to="/">
@@ -30,19 +36,30 @@ export default function Navbar() {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <NavLink className={activeLink} aria-current="page" to="/">Home</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className={activeLink} aria-current="page" to="/profile">Profile</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className={activeLink} aria-current="page" to="/leaderboard">Leaderboard</NavLink>
-                        </li>
-                    </ul>
+                        </li>                        
+                            { isUser && 
+                            <>
+                                <li className="nav-item">
+                                    <NavLink NavLink className={activeLink} aria-current="page" to="/profile">
+                                        Profile
+                                    </NavLink>
+                                </li>
+                            </>
+                            }
+                            { isUser && 
+                            <>
+                            <li className="nav-item">
+                                <NavLink className={activeLink} aria-current="page" to="/leaderboard">
+                                    Leaderboard
+                                </NavLink>
+                            </li>
+                            </>
+                            }
+                        </ul>
                     <div className="d-flex">
                         <ModalLogin/>
                         <ModalSignin />
                         <ModalSignup />
-        
                     </div>
                 </div>
             </div>

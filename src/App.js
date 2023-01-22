@@ -11,7 +11,6 @@ import Footer from "./components/footer/footer";
 function App() {
   return (
     <div className="App">
-      test
       <BrowserRouter>
       <Navbar />
         <Routes>
