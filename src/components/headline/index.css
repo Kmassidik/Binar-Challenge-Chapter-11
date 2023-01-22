@@ -1,0 +1,8 @@
+.button-hover:hover {
+    color: white !important;
+}
+
+.button-hover {
+    border-radius: 30px;
+    width: 40%
+}

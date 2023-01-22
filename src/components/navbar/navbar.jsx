@@ -40,8 +40,9 @@ export default function Navbar() {
                     </ul>
                     <div className="d-flex">
                         <ModalLogin/>
-                        <ModalSignup/>
-                        <ModalSignin/>
+                        <ModalSignin />
+                        <ModalSignup />
+        
                     </div>
                 </div>
             </div>

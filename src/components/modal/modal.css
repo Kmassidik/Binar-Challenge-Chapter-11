@@ -54,3 +54,7 @@
 .form-padding {
     border-radius: 8px;
 }
+
+.login-button {
+    border-top-left-radius: 30px;
+}
