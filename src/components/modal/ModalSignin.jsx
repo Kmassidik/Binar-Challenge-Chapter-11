@@ -39,7 +39,7 @@ export default function ModalSignin() {
                             <button type="button" className="btn text-white d-flex" data-bs-dismiss="modal" aria-label="Close">X</button>
                         </div>
                         <div className="modal-body">
-                            <h1 className="text-white mb-4 mt-3 text-title">Sign In</h1>
+                            <h1 className="text-white mb-4 mt-3 text-title">Login</h1>
                             <div className="d-flex row justify-content-center mx-3">
                             </div>
                             <form className="pe-5 ps-5" onSubmit={handleSubmit}>
@@ -60,9 +60,7 @@ export default function ModalSignin() {
                                     i forget my password
                                 </a>
                             </div>
-                            <div className="d-flex justify-content-center justify-content-sm-evenly mt-3">
-                            </div>
-                            <div className="d-flex justify-content-center mt-3">
+                            <div className="d-flex justify-content-center">
                                 <h6 className="text-white">No account yet?</h6>
                                 <a  
                                     className="text-link ms-2" 
