@@ -2,8 +2,6 @@ import React from "react"
 import logo from "./binar.png"
 import "./navbar.css"
 import ModalLogin from "../modal/ModalLogin"
-import ModalSignup from "../modal/ModalSignup"
-import ModalSignin from "../modal/ModalSignin"
 
 export default function Navbar() {
     return(
@@ -36,8 +34,6 @@ export default function Navbar() {
                     </ul>
                     <div className="d-flex">
                         <ModalLogin/>
-                        <ModalSignup/>
-                        <ModalSignin/>
                     </div>
                 </div>
             </div>
