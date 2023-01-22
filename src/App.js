@@ -9,7 +9,7 @@ import {
   Profile,
 } from "./pages"
 import { Navbar, Footer } from "./components";
-import Leader from "./components/leaderboard/Leaderboard"
+
 
 
 
@@ -21,10 +21,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Profile" element={<Profile />} />
-          <Route path="/Leaderboard" element={<Leaderboard />} />
           <Route path="/Games" element={<Games />} />
           <Route path="/Gamadetails" element={<GameDetails />} />
-          <Route path="/Leader" element={<Leader />} />
+          <Route path="/Leaderboard" element={<Leaderboard />} />
         </Routes>
       <Footer />
       </BrowserRouter>
