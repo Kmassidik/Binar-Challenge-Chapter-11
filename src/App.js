@@ -9,6 +9,7 @@ import {
   Profile,
 } from "./pages"
 import { Navbar, Footer } from "./components";
+import Leader from "./components/leaderboard/Leaderboard"
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Leaderboard" element={<Leaderboard />} />
           <Route path="/Games" element={<Games />} />
           <Route path="/Gamadetails" element={<GameDetails />} />
+          <Route path="/Leader" element={<Leader />} />
         </Routes>
       <Footer />
       </BrowserRouter>
