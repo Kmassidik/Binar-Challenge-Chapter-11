@@ -6,7 +6,7 @@ export default function VideoPlayer() {
         id: 1,
         title: "Video One",
         videoUrl:
-          "https://res.cloudinary.com/dlxw2mnrp/video/upload/v1674188873/random/testvideo_nnhbot.mp4",
+          "https://res.cloudinary.com/dtochq6ko/video/upload/v1674307467/GameVideo/20230121_211850_lpbu1j.mp4",
       },
     ]
   
