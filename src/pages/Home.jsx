@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Footer, Headline, Navbar, } from "../components"
+import { Box, Footer, Headline, Navbar, VideoUpload, VideoPlayer } from "../components"
 
 export default function Home() {
     return(
@@ -11,6 +11,8 @@ export default function Home() {
             <div className="">
                 <Box name={"Recommended games"} cols={4} rows={1} gap={10} />
             </div>
+            <VideoUpload />
+            <VideoPlayer />
             <Footer/>
         </>
     )
