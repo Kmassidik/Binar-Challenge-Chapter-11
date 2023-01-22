@@ -4,7 +4,7 @@ import Failed from "./3567801.jpg"
 export default function ModalFailed() {
     return(
         <>
-            <div className="modal fade fw-bold" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade fw-bold" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="d-flex justify-content-end">
