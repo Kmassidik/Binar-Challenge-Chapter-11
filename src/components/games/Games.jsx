@@ -151,7 +151,6 @@ export default function FirebaseGameSuit(){
           pickWinner: result
         }
     }
-    console.log(userChoice, computerChoice, result);
     if (userChoice !== null) {
       set(ref(database,`${isUserId}/gameHistory/${rec}/${id}`), inputUser)
     }

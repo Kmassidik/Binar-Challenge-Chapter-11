@@ -16,7 +16,6 @@ const UpdateProfile = (props) => {
 
     const authenticate = () => {onAuthStateChanged(authFirebase, (user) => {
         if (user) {
-              console.log(user)
               setUserId(user.uid)
         } else {
             navigate("/")
@@ -30,7 +29,7 @@ const UpdateProfile = (props) => {
             const item = db.val() 
             setImgData(item.imgUrl)
         } catch (error) {
-            console.log(error);
+            <ModalFailed/>
         }
     }
 
@@ -43,9 +42,7 @@ const UpdateProfile = (props) => {
     const handleSubmit = (e) => {
         authenticate()
         e.preventDefault()
-        console.log("ini data image",isImg);
         const userProfile = { userName, imgUrl : isImg }
-        console.log("hayoo datanya nih =>",userProfile)
         if (isImg != "") {
             set(ref(database,`${userId}/UserProfile`), userProfile)   
         }else{

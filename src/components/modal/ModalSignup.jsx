@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import ModalFailed from "./ModalFailed"
 
 export default function ModalSignup() {
     const [state, setState] = useState({
@@ -20,18 +21,12 @@ export default function ModalSignup() {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(state);
-        createUserWithEmailAndPassword(authFirebase, state.email, state.password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log("=> ini user",user);
+        try {
+            createUserWithEmailAndPassword(authFirebase, state.email, state.password)
             navigate(0)
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode,errorMessage);
-        });
+        } catch (err) {
+            <ModalFailed/>
+        }
     };
     return(
         <>
