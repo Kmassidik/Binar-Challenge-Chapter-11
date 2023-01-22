@@ -4,7 +4,6 @@
 
 .modal-button {
     border-radius: 30px;
-    background-color: #f99d1c;
     width: 90%;
 }
 
@@ -15,4 +14,47 @@
 .modal-edit {
     border-radius: 30px;
     width: 90%;
+}
+
+.text-link {
+    text-decoration: none;
+    color: #f99d1c;
+
+}
+
+.text-title {
+    font-weight: 900;
+}
+
+.input-ceklis {
+    margin-left: 3.5em;
+}
+
+.modal-edit:hover {
+    color: white !important;
+}
+
+.modal-button:hover {
+    color: white !important;
+}
+
+.forget-password:hover {
+    color: white !important;
+}
+
+.text-link:hover {
+    color: white !important;
+}
+
+.forget-password {
+    text-decoration: none;
+    color: #f99d1c;
+}
+
+.form-padding {
+    border-radius: 8px;
+}
+
+.login-button {
+    border-top-left-radius: 30px;
 }
