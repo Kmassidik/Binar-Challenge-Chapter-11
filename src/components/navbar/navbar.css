@@ -10,6 +10,7 @@
 
 .nav-link {
   border-radius:10px;
+  color: #000;
 }
 
 .nav-link:hover {
@@ -22,4 +23,9 @@
 
 .btn:hover{
   background-color: #933093;
+}
+
+.active {
+  background-color: #933093;
+  color: #fff !important;
 }
