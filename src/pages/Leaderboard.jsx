@@ -1,10 +1,10 @@
 import React from "react"
-import { Level } from "../components"
+import { Leaderboard } from "../components"
 
-export default function Leaderboard() {
+export default function leadboard() {
     return(
         <>
-            <Level/>
+            <Leaderboard/>
         </>
     )
 }
