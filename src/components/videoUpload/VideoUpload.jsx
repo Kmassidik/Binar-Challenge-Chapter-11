@@ -4,8 +4,10 @@ import React, {useState} from "react"
 export default function VideoPlayer() {
     const [image, setImage] = useState(" ")
     const [video, setVideo] = useState(" ")
+    const [isData, setData] = useState(" ")
+    console.log(isData);
 
-
+    console.log(isData.url);
     const submitImage = () => {
         // console.log(files[0]);
         const data = new FormData()
@@ -18,11 +20,12 @@ export default function VideoPlayer() {
             body: data
         })
             .then((res) => res.json())
-            // .then((data) => {
-            //     console.log(data);
-            // }).catch((err) => {
-            //     console.log(err);
-            // })
+            .then((data) => { 
+                setData(data) 
+                // console.log(data);
+            }).catch((err) => {
+                console.log(err);
+            })
     }
 
     const submitVideo = () => {
