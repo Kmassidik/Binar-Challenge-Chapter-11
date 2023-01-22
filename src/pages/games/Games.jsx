@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
-import { useState } from "react"
-// import { database, authFirebase } from "../config/firebase"
-// import { ref, set } from "firebase/database"
+import { useState, useEffect } from "react"
+import { database } from "../../services/firebase"
+import { ref, set } from "firebase/database"
 import { useNavigate, Link } from "react-router-dom"
 import { 
   TwitterShareButton,
@@ -11,14 +10,11 @@ import {
   WhatsappIcon,
   WhatsappShareButton
 } from "react-share"
-// import jwt_decode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 import "./games.css"
 import Batu from "./assets/batu.png"
 import Gunting from "./assets/gunting.png"
 import Kertas from "./assets/kertas.png"
-import Logo1 from "./assets/logo1.png" 
-import Refresh from "./assets/refresh.png"
-import Back from "./assets/_.png"
 
 export default function FirebaseGameSuit(){
   const [userChoice, setUserChoice] = useState(null)
@@ -71,16 +67,16 @@ export default function FirebaseGameSuit(){
       setBotKertas(true)
     }
   }
-//   const authenticate = () => {
-//     let storage = localStorage.getItem("accesstoken")
-//     if (storage === "" || storage === null){
-//       navigate("/login")
-//     } else {
-//       let decode = jwt_decode(storage)
-//       setUser(decode.email)
-//       setUserId(decode.user_id)
-//     }
-//   }
+  const authenticate = () => {
+    let storage = localStorage.getItem("accesstoken")
+    if (storage === "" || storage === null){
+      navigate("/login")
+    } else {
+      let decode = jwtDecode(storage)
+      setUser(decode.email)
+      setUserId(decode.user_id)
+    }
+  }
   const Start = (p1,p2) => {
     setUserChoice(p1)
     setComputerChoice(p2)
@@ -141,47 +137,49 @@ export default function FirebaseGameSuit(){
     }
   }
 
-//   useEffect(() => {
-//     authenticate()
-//     const inputUser = {
-//       userId: isUserId,
-//       email: isUser,
-//       total_game: id,
-//       total_point: point,
-//       game_record: 
-//         {
-//           pick_bot: computerChoice,
-//           pick_player: userChoice,
-//           pick_winner: result
-//         }
-//     }
-//     console.log(userChoice, computerChoice, result);
-//     if (userChoice !== null) {
-//       set(ref(database,`Histories/${rec}/${id}`), inputUser)
-//     }
-//   },[userChoice, computerChoice, id, result, point])
+  useEffect(() => {
+    authenticate()
+    const inputUser = {
+      userId: isUserId,
+      email: isUser,
+      totalGame: id,
+      totalPoint: point,
+      gameRecord: 
+        {
+          pickBot: computerChoice,
+          pickPlayer: userChoice,
+          pickWinner: result
+        }
+    }
+    console.log(userChoice, computerChoice, result);
+    if (userChoice !== null) {
+      set(ref(database,`${isUserId}/gameHistory/${rec}/${id}`), inputUser)
+    }
+  },[userChoice, computerChoice, id, result, point])
 
   return (
     <>
-        <div className="conta d-flex justify-content-start">
-            
-        </div>
-
-        <div className="container py-5">
-            <div className="d-flex justify-content-between">
-                <button type="button" className="button-ingame btn btn-outline-warning">Warning</button>
-                <button type="button" className="button-ingame btn btn-outline-warning">History</button>
-            </div>
+        <div className="container py-2">
                 <div className="row text-center">
                 <div className="col">
                     <div className="mb-5 "><h1>Player</h1></div>
-                    <div className="my-3 option" style={{backgroundColor: isBatu ? "salmon" : "", color: isBatu ? "white" : "",}}>
+                    <div className="my-3 option" 
+                    style={{
+                            backgroundColor: isBatu ? "#933093" : "", 
+                            color: isBatu ? "white" : "",
+                            borderRadius: isBatu ? "400px" : ""}}>
                         <img alt='batu' src={Batu} onClick={() => handleClick("batu",generateComputerChoice())}/>
                     </div>
-                    <div className="my-3 option" style={{backgroundColor: isGunting ? "salmon" : "", color: isGunting ? "white" : "",}}>
+                    <div className="my-3 option" 
+                            style={{backgroundColor: isGunting ? "#933093" : "", 
+                            color: isGunting ? "white" : "",
+                            borderRadius: isGunting ? "400px" : ""}}>
                         <img alt='gunting' src={Gunting} onClick={() => handleClick("gunting",generateComputerChoice())}/>
                     </div>
-                    <div className="my-3 option" style={{backgroundColor: isKertas ? "salmon" : "", color: isKertas ? "white" : "",}}>
+                    <div className="my-3 option" 
+                            style={{backgroundColor: isKertas ? "#933093" : "", 
+                            color: isKertas ? "white" : "",
+                            borderRadius: isKertas ? "400px" : ""}}>
                         <img alt='kertas' src={Kertas} onClick={() => handleClick("kertas",generateComputerChoice())}/>
                     </div>
                 </div>
@@ -193,31 +191,53 @@ export default function FirebaseGameSuit(){
                 </div>
                 <div className="col">
                     <div className="mb-5"><h1>Bot</h1></div>
-                    <div className="my-3 option" style={{backgroundColor: botBatu ? "salmon" : "", color: botBatu ? "white" : "",}}>
+                    <div className="my-3 option" 
+                            style={{backgroundColor: botBatu ? "#933093" : "", 
+                            color: botBatu ? "white" : "",
+                            borderRadius: botBatu ? "400px" : ""}}>
                         <img id="comrock" className="bot" src={Batu} alt="batu"/>
                     </div>
-                    <div className="my-3 option" style={{backgroundColor: botGunting ? "salmon" : "", color: botGunting ? "white" : "",}}>
+                    <div className="my-3 option" 
+                            style={{backgroundColor: botGunting ? "#933093" : "", 
+                            color: botGunting ? "white" : "",
+                            borderRadius: botGunting ? "400px" : ""}}>
                         <img id="comscissors" className="bot" src={Gunting} alt="gunting"/>
                     </div>
-                    <div className="my-3 option" style={{backgroundColor: botKertas ? "salmon" : "", color: botKertas ? "white" : "",}}>
+                    <div className="my-3 option" 
+                            style={{backgroundColor: botKertas ? "#933093" : "", 
+                            color: botKertas ? "white" : "",
+                            borderRadius: botKertas ? "400px" : ""}}>
                         <img id="compaper" className="bot" src={Kertas}  alt="kertas"/>
                     </div>
                 </div>
                 </div>
-                <div className="text-center option mb-5">
-                <FacebookShareButton url={url} hashtag='#game' className='facebook'>
-                <FacebookIcon size={32} round={true} />
-                </FacebookShareButton>
-                <TwitterShareButton url={url} hashtag='#game' className='twitter'>
-                <TwitterIcon size={32} round={true} />
-                </TwitterShareButton>
-                <WhatsappShareButton url={url} hashtag='#game' className='whatsapp'>
-                <WhatsappIcon size={32} round={true} />
-                </WhatsappShareButton> - total point : {point} - <Link to='/' className='point'>
-                </Link>
-                <Link to="/gameSuitTable">
-                </Link>
-                {result && <h1> RESULT : {result}</h1>}
+                <div className="fs-3 font-monospace mx-1 mt-4">
+                    Your Point : {point}
+                    {result && <>, Result : {result}</>}
+                </div>
+                <div className="container d-flex justify-content-center mt-3">
+                  <div className="mx-3">
+                    <FacebookShareButton url={url} hashtag='#game' className='facebook'>
+                      <FacebookIcon size={32} round={true} />
+                    </FacebookShareButton>
+                  </div>
+                  <div className="mx-3">
+                    <TwitterShareButton url={url} hashtag='#game' className='twitter'>
+                      <TwitterIcon size={32} round={true} />
+                    </TwitterShareButton>
+                  </div>
+                  <div className="mx-3">
+                    <WhatsappShareButton url={url} hashtag='#game' className='whatsapp'>
+                      <WhatsappIcon size={32} round={true} />
+                    </WhatsappShareButton> 
+                  </div>
+                    <Link to='/' className='point'>
+                    </Link>
+                </div>
+                <div className="mt-4">
+                  <Link to="/gameSuitTable">
+                    <button type="button" className="button-ingame btn btn-outline-warning">History</button>
+                  </Link>
                 </div>
         </div>
     </>

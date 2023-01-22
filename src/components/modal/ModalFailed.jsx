@@ -25,7 +25,7 @@ export default function ModalFailed() {
                                     type="button" 
                                     className="modal-edit btn btn-outline-warning fw-bold" 
                                     data-bs-toggle="modal" 
-                                    data-bs-target="#staticBackdrop2"
+                                    data-bs-target="#staticBackdrop4"
                                 >
                                     Try again
                                 </button>
