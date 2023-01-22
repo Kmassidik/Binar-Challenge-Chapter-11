@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function ModalSignup() {
     const [state, setState] = useState({
@@ -14,6 +15,8 @@ export default function ModalSignup() {
         [name]: value
         }));
     };
+
+    const navigate = useNavigate()
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,6 +25,7 @@ export default function ModalSignup() {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log("=> ini user",user);
+            navigate(0)
         })
         .catch((error) => {
             const errorCode = error.code;

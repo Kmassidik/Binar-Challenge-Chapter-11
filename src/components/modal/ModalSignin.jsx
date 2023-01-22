@@ -1,12 +1,15 @@
 import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function ModalSignin() {
     const [state, setState] = useState({
         email: "",
         password: ""
       });
+    const navigate = useNavigate()
+    
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setState((prevProps) => ({
@@ -14,6 +17,7 @@ export default function ModalSignin() {
         [name]: value
         }));
     };
+
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,6 +26,8 @@ export default function ModalSignin() {
             .then((userCredential) => {
                 const jwtToken = userCredential.user.accessToken
                 localStorage.setItem("accesstoken",jwtToken )
+                console.log(jwtToken)
+                navigate(0)
             })
             .catch((error) => {
                 const errorCode = error.code;
