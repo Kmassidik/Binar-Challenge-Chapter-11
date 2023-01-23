@@ -63,17 +63,26 @@ export default function VideoPlayer() {
         authenticate()
         dataTable()
     },[dataTable])
-
+    
     return (
         <>
-            <div>
-                <h2>Video Upload</h2>
-                <form onSubmit={handleSubmit}>
-                <input type="file" onChange={(e) => {submitVideo(e)}} />
-                <button type="submit">upload</button>
-                </form>
+            <div className="container">
+                <div className="d-flex justify-content-center">
+                    <h2>Video Upload</h2>
+                </div>
+                <div className="input-group d-flex justify-content-center">
+                    <form onSubmit={handleSubmit}>
+                        <input 
+                            type="file"
+                            className="form-control" 
+                            placeholder="Upload your file" 
+                            onChange={(e) => {submitVideo(e)}}/>
+                        <div className="input-group-append">
+                            <button className="btn btn-outline-secondary mt-3" type="submit">Upload</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            {isVideo}
         </>
     )
 }

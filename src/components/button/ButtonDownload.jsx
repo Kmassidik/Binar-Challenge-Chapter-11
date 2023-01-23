@@ -1,33 +1,65 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable"
+import { onAuthStateChanged } from "firebase/auth";
+import { ref, child, get } from "firebase/database"
+import authFirebase, { database } from "../../services/firebase";
+import { useNavigate } from "react-router-dom";
  
 export default function getPdf() {
-  function generateSimplePDF() {
-    const doc = new jsPDF();
-    doc.text("Game Binar", 14, 10);
+  const [userId, setUserId] = useState("")
+  const [isData, setData] = useState()
+  const navigate = useNavigate()
 
-	doc.text("Hartono Nathanza", 150, 10);
-    doc.setFont("courier")
- 
-    autoTable(doc, 
-      { head: [["userId", "Total Game", "Total Point"]],
-      body: [
-        ["1R7m3CWhdBTuLCe6Njnopw224j62", "1", "10"],
-        ["R7m3CWhdBTuLCe6Njnopw224j62", "2", "14"],
-        ["R7m3CWhdBTuLCe6Njnopw224j62", "3", "32"],
-        ["R7m3CWhdBTuLCe6Njnopw224j62", "4", "5"],
-        ["R7m3CWhdBTuLCe6Njnopw224j62", "5", "24"],
-        ["R7m3CWhdBTuLCe6Njnopw224j62", "6", "21"],
-      ],
+  const dataTable = async () => {
+    try {
+        const db = await get(child(ref(database),`${userId}/gameHistory`))
+        const video = db.val()
+        setData(video)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const authenticate = () => {
+    onAuthStateChanged(authFirebase, (user) => {
+    if (user) {
+          setUserId(user.uid)
+    } else {
+        navigate("/")
+    }
+})}
+
+useEffect(()=>{
+  authenticate()
+  dataTable()
+},[dataTable])
+
+function generateSimplePDF() {
+  // console.log(typeof isData.record);
+  // console.log(isData.record[1].totalPoint);
+  const doc = new jsPDF();
+  doc.text("Game Binar", 14, 10);
+  doc.text(isData.record[1].email, 150, 10);
+  doc.setFont("courier")
+      autoTable(doc, 
+      { 
+        head: [ [ "hasil game", "Total Game", "Total Point" ] ],
+        body: [ 
+          [ isData.record[1].gameRecord.pickWinner, isData.record[1].totalGame, isData.record[1].totalPoint ], 
+          [ isData.record[2].gameRecord.pickWinner, isData.record[2].totalGame, isData.record[2].totalPoint ], 
+          [ isData.record[3].gameRecord.pickWinner, isData.record[3].totalGame, isData.record[3].totalPoint ], 
+          [ isData.record[4].gameRecord.pickWinner, isData.record[4].totalGame, isData.record[4].totalPoint ], 
+          [ isData.record[5].gameRecord.pickWinner, isData.record[5].totalGame, isData.record[5].totalPoint ], 
+        ],
     })
     doc.save("Document.pdf");
   }
- 
+
   return (
     <div className="App">
       <button className="btn border btn-sm mt-2 mb-3 " onClick={generateSimplePDF}>Download Your Game History</button>
     </div>
   );
 }
+
