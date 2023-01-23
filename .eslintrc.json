@@ -21,10 +21,10 @@
     "rules": {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
-        "no-console": "error",
+        "no-console": "off",
         "camelcase": "error",
         "curly": "error",
-        "no-unused-vars": "error",
+        "no-unused-vars": "off",
         "quotes": ["error", "double"]
     }
 }

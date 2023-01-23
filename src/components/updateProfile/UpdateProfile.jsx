@@ -33,7 +33,6 @@ const UpdateProfile = (props) => {
         }
     }
 
-
     useEffect (() => {
         authenticate()
         fetchFirebase()

@@ -7,6 +7,7 @@ import {
   Home, 
   Leaderboard,
   Profile,
+  Table
 } from "./pages"
 import { Navbar, Footer } from "./components";
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Games" element={<Games />} />
           <Route path="/Gamedetails" element={<GameDetails />} />
           <Route path="/Leaderboard" element={<Leaderboard />} />
+          <Route path="/Games/Table" element={<Table />} />
         </Routes>
       <Footer />
       </BrowserRouter>
