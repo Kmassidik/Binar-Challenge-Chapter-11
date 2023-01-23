@@ -25,7 +25,7 @@ const UpdateProfile = (props) => {
 
     const fetchFirebase = async () => {
         try {
-            const db = await get(child(ref(database),`${userId}/UserProfile`)) 
+            const db = await get(child(ref(database),`${userId}/UserProfile/Profile`)) 
             const item = db.val() 
             setImgData(item.imgUrl)
         } catch (error) {
@@ -43,7 +43,7 @@ const UpdateProfile = (props) => {
         e.preventDefault()
         const userProfile = { userName, imgUrl : isImg }
         if (isImg != "") {
-            set(ref(database,`${userId}/UserProfile`), userProfile)   
+            set(ref(database,`${userId}/UserProfile/Profile`), userProfile)   
         }else{
             <ModalFailed/>
         }

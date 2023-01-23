@@ -234,7 +234,7 @@ export default function FirebaseGameSuit(){
                     </Link>
                 </div>
                 <div className="mt-4">
-                  <Link to="/gameSuitTable">
+                  <Link to="/Games/Table">
                     <button type="button" className="button-ingame btn btn-outline-warning">History</button>
                   </Link>
                 </div>
