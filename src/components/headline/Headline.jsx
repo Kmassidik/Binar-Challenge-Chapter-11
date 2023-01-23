@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import hero from "./hero.png"
 import "./index.css"
 
@@ -16,9 +17,11 @@ export default function Content(){
                             Just use our game feature from binargame. Just click on the link, then choose the game you want to play, and play it for free. 
                             Very easy right?
                         </p>
-                        <div className="d-flex btn-lg mt-4">
-                            <button type="button" className="button-hover btn btn-outline-custom fw-bold">Play Now</button>
-                        </div>
+                        <Link to="/Gamedetails">
+                            <div className="d-flex btn-lg mt-4">
+                                <button type="button" className="button-hover btn btn-outline-custom fw-bold">Play Now</button>
+                            </div>
+                        </Link>
                     </div>
                     <div className="col-4 mt-3">
                         <img src={hero} alt="let's play" width={300} />

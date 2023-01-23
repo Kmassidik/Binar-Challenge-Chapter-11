@@ -70,7 +70,7 @@ export default function FirebaseGameSuit(){
   const authenticate = () => {
     let storage = localStorage.getItem("accesstoken")
     if (storage === "" || storage === null){
-      navigate("/login")
+      navigate("/")
     } else {
       let decode = jwtDecode(storage)
       setUser(decode.email)

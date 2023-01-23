@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import "./landingGame.css"
 
@@ -8,9 +9,11 @@ export default function LandingGame() {
         <>
             <div className="container-fluid" style={{"minHeight":"100vh"}}>
                 <VideoPlayer/>
-                <div>
-                    <button type="button" className="button-games btn btn-outline-warning mt-4 fw-bold" href="/games">Play Now</button>
-                </div>
+                <Link to="/Games">
+                    <div>
+                        <button type="button" className="button-games btn btn-outline-warning mt-4 fw-bold" href="/games">Play Now</button>
+                    </div>
+                </Link>
             </div>
 
             {/* Game Detail */}

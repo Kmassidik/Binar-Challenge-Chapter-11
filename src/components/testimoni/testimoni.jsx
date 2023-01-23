@@ -16,11 +16,11 @@ export default function Testimoni(){
         <div className="card">
           <div className="card-body py-4 mt-2">
             <div className="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+              <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674444515/Testimoni%20Photo/The_Rock_l6jms7.jpg"
                 className="rounded-circle shadow-1-strong" width="100" height="100" />
             </div>
-            <h5 className="font-weight-bold">Teresa May</h5>
-            <h6 className="font-weight-bold my-3">Founder at ET Company</h6>
+            <h5 className="font-weight-bold">Dwayne Johnson (The Rock)</h5>
+            <h6 className="font-weight-bold my-3">Body Builder</h6>
             <ul className="list-unstyled d-flex justify-content-center">
               <li>
                 <i className="fas fa-star fa-sm text-info"></i>
@@ -39,9 +39,7 @@ export default function Testimoni(){
               </li>
             </ul>
             <p className="mb-2">
-              <i className="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat
-              ad velit ab hic tenetur.
+              <i className="fas fa-quote-left pe-2"></i>Very innovative, i can learn many things here. its help me to develop my growth mindset. so i will always be on the top!
             </p>
           </div>
         </div>
@@ -50,11 +48,11 @@ export default function Testimoni(){
         <div className="card">
           <div className="card-body py-4 mt-2">
             <div className="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(15).webp"
+              <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674444460/Testimoni%20Photo/downeyjr_vko1bl.jpg"
                 className="rounded-circle shadow-1-strong" width="100" height="100" />
             </div>
-            <h5 className="font-weight-bold">Maggie McLoan</h5>
-            <h6 className="font-weight-bold my-3">Photographer at Studio LA</h6>
+            <h5 className="font-weight-bold">Robert Downey Jr.</h5>
+            <h6 className="font-weight-bold my-3">Technology Founder & Inspiration</h6>
             <ul className="list-unstyled d-flex justify-content-center">
               <li>
                 <i className="fas fa-star fa-sm text-info"></i>
@@ -72,11 +70,9 @@ export default function Testimoni(){
                 <i className="fas fa-star fa-sm text-info"></i>
               </li>
             </ul>
-            <p className="mb-2">
-              <i className="fas fa-quote-left pe-2"></i>Autem, totam debitis suscipit saepe
-              sapiente magnam officiis quaerat necessitatibus odio assumenda perferendis
-              labore laboriosam.
-            </p>
+            <p className="d-flex justify-content mb-2">
+              <i className="fas fa-quote-left pe-2"></i>This app is very useful, i like this app very much. Everytime when i bored, i always go to this app to refresh my minds. This app makes me feels good.
+              </p>
           </div>
         </div>
       </div>
@@ -84,11 +80,11 @@ export default function Testimoni(){
         <div className="card">
           <div className="card-body py-4 mt-2">
             <div className="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
+              <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674444857/Testimoni%20Photo/OmIndro_klltij.jpg"
                 className="rounded-circle shadow-1-strong" width="100" height="100" />
             </div>
-            <h5 className="font-weight-bold">Alexa Horwitz</h5>
-            <h6 className="font-weight-bold my-3">Front-end Developer in NY</h6>
+            <h5 className="font-weight-bold">Om Indro Warkop DKI</h5>
+            <h6 className="font-weight-bold my-3">Comedian</h6>
             <ul className="list-unstyled d-flex justify-content-center">
               <li>
                 <i className="fas fa-star fa-sm text-info"></i>
@@ -107,9 +103,7 @@ export default function Testimoni(){
               </li>
             </ul>
             <p className="mb-2">
-              <i className="fas fa-quote-left pe-2"></i>Cras sit amet nibh libero, in gravida
-              nulla metus scelerisque ante sollicitudin commodo cras purus odio,
-              vestibulum in tempus viverra turpis.
+              <i className="fas fa-quote-left pe-2"></i>I can refresh my minds while playing this. When i need inspiration to make comedy material, i also play this app. GAS STOVE!
             </p>
           </div>
         </div>
