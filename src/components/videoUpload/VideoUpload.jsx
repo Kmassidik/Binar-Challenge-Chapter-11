@@ -11,7 +11,7 @@ export default function VideoPlayer() {
 
     const dataTable = async () => {
         try {
-            const db = await get(child(ref(database),`${userId}/UserProfile`))
+            const db = await get(child(ref(database),`${userId}/UserProfile/vidProfile`))
             const video = db.val()
             console.log(db.val(),"==> ini datanya");
             setVideo(video.vidUrl)
@@ -31,7 +31,7 @@ export default function VideoPlayer() {
     
     const createDb = (el) => {
         const userProfile = { vidUrl : el }
-        set(ref(database,`${userId}/UserProfile`), userProfile)
+        set(ref(database,`${userId}/UserProfile/vidProfile`), userProfile)
     }
  
     const submitVideo = (e) => {

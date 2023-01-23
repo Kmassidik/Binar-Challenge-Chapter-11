@@ -20,8 +20,10 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className="col-6">
-                        <div className="container border rounded-3" style={{"height":"500px",}}>
-                            <Button/>
+                        <div className="container border rounded-3" style={{"height":"80px",}}>
+                            <div className="mt-3">
+                                <Button/>
+                            </div>
                         </div>
                     </div>
                 </div>

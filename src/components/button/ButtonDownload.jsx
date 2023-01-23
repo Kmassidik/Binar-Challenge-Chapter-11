@@ -27,7 +27,7 @@ export default function getPdf() {
  
   return (
     <div className="App">
-      <button className="btn border btn-sm mt-2 mb-3 " onClick={generateSimplePDF}>Download Your Data</button>
+      <button className="btn border btn-sm mt-2 mb-3 " onClick={generateSimplePDF}>Download Your Game History</button>
     </div>
   );
 }
