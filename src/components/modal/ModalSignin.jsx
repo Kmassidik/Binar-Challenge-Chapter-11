@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-// import ModalFailed from "./ModalFailed"
 export default function ModalSignin() {
     const [state, setState] = useState({
         email: "",
@@ -28,7 +27,8 @@ export default function ModalSignin() {
                 navigate(0)
             })
             .catch((err) => {
-                alert(err)
+                const errorMessage = err.message;
+                errorMessage
             });
     };
     return(

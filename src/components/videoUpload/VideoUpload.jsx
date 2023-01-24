@@ -20,7 +20,7 @@ export default function VideoPlayer() {
           const db = await get(child(ref(database),`${decode.user_id}/UserProfile/vidProfile`))
           setUser(decode.email)
           setUserId(decode.user_id)
-          setVideo(db.val().vidUrl)
+          setVideo(db.val()?.vidUrl)
         }
       }
 
@@ -28,7 +28,7 @@ export default function VideoPlayer() {
         try {
             const db = await get(child(ref(database),`${isUser}/UserProfile/vidProfile`))
             const video = db.val()
-            setVideo(video.vidUrl)
+            setVideo(video?.vidUrl)
         } catch (error) {
             console.log(error);
         }
@@ -66,7 +66,7 @@ export default function VideoPlayer() {
     useEffect(()=>{
         authenticate()
         dataTable()
-    },[])
+    },[dataTable])
     
     return (
         <>

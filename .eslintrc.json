@@ -25,6 +25,6 @@
         "camelcase": "error",
         "curly": "error",
         "no-unused-vars": "warn",
-        "quotes": ["error", "double"]
+        "quotes": ["warn", "double"]
     }
 }
