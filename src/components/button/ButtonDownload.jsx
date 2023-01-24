@@ -36,8 +36,6 @@ useEffect(()=>{
 },[dataTable])
 
 function generateSimplePDF() {
-  // console.log(typeof isData.record);
-  // console.log(isData.record[1].totalPoint);
   const doc = new jsPDF();
   doc.text("Game Binar", 14, 10);
   doc.text(isData.record[1].email, 150, 10);
@@ -54,7 +52,7 @@ function generateSimplePDF() {
         ],
     })
     // untuk ganti nama
-    doc.save("Document.pdf"); 
+    doc.save(`Game Binar History ${isData.record[1].email}.pdf`); 
   }
 
   return (

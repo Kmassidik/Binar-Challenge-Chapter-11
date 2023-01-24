@@ -52,7 +52,6 @@ export default function History() {
             const db = await get(child(ref(database),`${isId}/gameHistory`)) 
             const item = db.val() 
             setData(item)
-            console.log(item);
         } catch (error) {
             console.log(error);
         }
