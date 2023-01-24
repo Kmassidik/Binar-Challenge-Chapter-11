@@ -61,7 +61,7 @@ export default function History() {
 
     const dataTable = async () => {
         try {
-            const db = await get(child(ref(database), `${isId}/gameHistory`))
+            const db = await get(child(ref(database), `${isId}/GameHistory`))
             const item = db.val()
             setData(item)
         } catch (error) {

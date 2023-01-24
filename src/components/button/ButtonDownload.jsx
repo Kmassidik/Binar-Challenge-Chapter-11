@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
-import autoTable from "jspdf-autotable"
+import autoTable from "jspdf-autotable";
 import { onAuthStateChanged } from "firebase/auth";
 import { ref, child, get } from "firebase/database"
 import authFirebase, { database } from "../../services/firebase";

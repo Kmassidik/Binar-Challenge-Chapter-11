@@ -24,8 +24,8 @@ const authenticate = async () => {
       let decode = jwtDecode(storage)
       const db = await get(child(ref(database),`${decode.user_id}/UserProfile`))
       setId(decode.user_id)
-      setImg(db.val().imgProfile.imgUrl)
-      setName(db.val().nameProfile.userName)
+      setImg(db.val()?.imgProfile?.imgUrl)
+      setName(db.val()?.nameProfile?.userName)
       setEmail(decode.email)
     }
 }
