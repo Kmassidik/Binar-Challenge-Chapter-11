@@ -1,5 +1,6 @@
 .button-games:hover {
     color: white !important;
+    border-color: #933093;
 }
 
 .button-games {
