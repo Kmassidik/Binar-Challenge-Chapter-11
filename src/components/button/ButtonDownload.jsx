@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { ref, child, get } from "firebase/database"
 import authFirebase, { database } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
+import "./buttonDownload.css"
  
 export default function getPdf() {
   const [userId, setUserId] = useState("")
@@ -59,7 +60,7 @@ function generateSimplePDF() {
 
   return (
     <div className="App">
-      <button className="btn border btn-sm mt-2 mb-3 " onClick={generateSimplePDF}>Download Your Game History</button>
+      <button className="button-download btn border btn-sm mt-2 mb-3 " onClick={generateSimplePDF}>Download Your Game History</button>
     </div>
   );
 }
