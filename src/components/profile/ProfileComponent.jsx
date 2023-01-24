@@ -50,9 +50,11 @@ useEffect (() => {
     <div className="profile">
         <div className="profile__content">
             <div className="profile__picture">
-                    <img className="profile-img" src={isImg} alt="profile" />
-                    <div className="edit-icon">
-                    <UpdateProfile text={<FaCamera />} />
+                    <div className="d-flex">
+                        <img className="profile-img" src={isImg} alt="profile"/>
+                        <div className="edit-icon d-flex justify-content-end">
+                            <UpdateProfile text={<FaCamera />} />
+                        </div>
                     </div>
             </div>
             <div className="profile__desc">
@@ -62,17 +64,20 @@ useEffect (() => {
                 <div className="profile__display-name">
                     <p>Your Name : {isName}</p>
                     <br />
+                    <div className="ms-2">
                     <UpdateProfile text="Edit" />
+                    </div>
+                    
                 </div>
                 <div className="profile__achievements">
                     <div className="profile__achievements-head">
                     <h4>Achievements</h4>
                     </div>
                     <div className="profile__achievements-emblem">
-                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526978/Achievment/Epic_xqjxr7.png" alt="dummy" />
-                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526840/Achievment/LegendRanked_izgbjb.png" alt="dummy" />
-                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526841/Achievment/Mitik_v7lsmn.png" alt="dummy" />
-                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526838/Achievment/MitikalGlory_cdzuxt.png" alt="dummy" />
+                        <img className="" src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526978/Achievment/Epic_xqjxr7.png" alt="dummy" />
+                        <img className="ms-3" src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526840/Achievment/LegendRanked_izgbjb.png" alt="dummy" />
+                        <img className="ms-3" src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526841/Achievment/Mitik_v7lsmn.png" alt="dummy" />
+                        <img className="ms-3" src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526838/Achievment/MitikalGlory_cdzuxt.png" alt="dummy" />
                     </div>
                     
                 </div>
