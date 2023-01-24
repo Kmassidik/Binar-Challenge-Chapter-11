@@ -85,7 +85,7 @@ const UpdateProfile = (props) => {
 
   return (
 <div className="update-profile">
-            <button type="button" className="btn btn-primary main-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+            <button type="button" className="button-edit-profile btn btn-outline-primary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                 {props.text}
             </button>
 

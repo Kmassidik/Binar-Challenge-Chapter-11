@@ -53,15 +53,21 @@
     width: 100%;
 }
 
-.update-profile button:hover {
-    background-color: #3400c4 !important;
-    color: #fff !important;
-}
-
 .update-profile .para {
     text-align: left;
 }
 
 .update-profile .input-image {
     height: 100%;
+}
+
+.button-edit-profile:hover {
+    color: white !important;
+    background-color: #933093 !important; 
+    border-color: #933093;
+}
+
+.button-edit-profile {
+    color: #933093;
+    border-color: #933093;
 }

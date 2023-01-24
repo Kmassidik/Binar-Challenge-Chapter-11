@@ -52,6 +52,7 @@ background-color: #933093;
 }
 .button-ingame:hover {
     color: white !important;
+    border-color: #933093;
 }
 
 @keyframes box-animation {

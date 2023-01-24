@@ -17,7 +17,7 @@ export default function Content(){
                             Just use our game feature from binargame. Just click on the link, then choose the game you want to play, and play it for free. 
                             Very easy right?
                         </p>
-                        <Link to="/Gamedetails">
+                        <Link to="/Gamedetails" style={{ "textDecoration": "none" }}>
                             <div className="d-flex btn-lg mt-4">
                                 <button type="button" className="button-hover btn btn-outline-custom fw-bold">Play Now</button>
                             </div>
