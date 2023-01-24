@@ -1,24 +1,36 @@
 import React from "react"
 import authFirebase, { database } from "../../services/firebase";
 import { ref, child, get } from "firebase/database"
-import { useEffect,useState } from "react"
+import { useEffect, useState } from "react"
 import DataTable from "react-data-table-component";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import jwtDecode from "jwt-decode";
 
 export default function History() {
     const [data, setData] = useState({})
     const [isId, setDataId] = useState()
+    const [userId, setUserId] = useState("")
 
     const navigate = useNavigate()
-    const authenticate = () => {onAuthStateChanged(authFirebase, (user) => {
-        if (user) {
-            setDataId(user.uid)
+    const authenticate = () => {
+        onAuthStateChanged(authFirebase,
+            (user) => {
+                if (user) {
+                    setDataId(user.uid)
+                }
+            })
+    }
+
+    const authenticate2 = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+          navigate("/")
         } else {
-            navigate("/")
+          let decode = jwtDecode(storage)
+          setUserId(decode.user_id)
         }
-    })}
+      }
 
     const columns = [
         {
@@ -49,36 +61,37 @@ export default function History() {
 
     const dataTable = async () => {
         try {
-            const db = await get(child(ref(database),`${isId}/gameHistory`)) 
-            const item = db.val() 
+            const db = await get(child(ref(database), `${isId}/gameHistory`))
+            const item = db.val()
             setData(item)
             console.log(item);
         } catch (error) {
             console.log(error);
         }
     }
-       
-    useEffect(()=>{
+
+    useEffect(() => {
         authenticate()
+        authenticate2()
         dataTable()
-    },[dataTable])
-    return(
-    <>
-        <div className='BackgroundBody'>
-        <div className='container'>
-            <div className="px-5 ">
-            {
-            data != null && 
-            <DataTable
-            columns={columns}
-            data={data.record}
-            pagination
-            />
-        }
+    }, [dataTable,userId])
+    return (
+        <>
+            <div className='BackgroundBody'>
+                <div className='container'>
+                    <div className="px-5 ">
+                        {
+                            data != null &&
+                            <DataTable
+                                columns={columns}
+                                data={data.record}
+                                pagination
+                            />
+                        }
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
-    
-    </>
+
+        </>
     )
 }
