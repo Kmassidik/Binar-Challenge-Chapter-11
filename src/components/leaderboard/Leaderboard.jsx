@@ -1,11 +1,32 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
-export default function Leaderboard(){
-    return(
+const Leaderboard = () => {
+
+    const [userId, setUserId] = useState("")
+
+    const navigate = useNavigate()
+
+    const authenticate = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+          navigate("/")
+        } else {
+          let decode = jwtDecode(storage)
+          setUserId(decode.userId)
+        }
+    }
+
+    useEffect(() => {
+        authenticate()
+    }, [userId])
+
+    return (
         <>
             <div className="container-fluid">
                 <section className="container">
-                    <div className="mt-5 mx-5" style={{"height":"80vh"}}>
+                    <div className="mt-5 mx-5" style={{ "height": "80vh" }}>
                         <div className="mt-1 fs-1 fw-bold">Leaderboard</div>
                         <div className="container mt-3">
                             <div className="py-2">
@@ -71,3 +92,5 @@ export default function Leaderboard(){
         </>
     )
 }
+
+export default Leaderboard
