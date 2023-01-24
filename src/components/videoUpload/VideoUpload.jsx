@@ -1,37 +1,42 @@
 import React, {useEffect, useState} from "react"
-import { onAuthStateChanged } from "firebase/auth";
 import { ref, set, child, get } from "firebase/database"
-import authFirebase, { database } from "../../services/firebase";
+import { database } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
 export default function VideoPlayer() {
-    const [userId, setUserId] = useState("")
     const [isVideo, setVideo] = useState("")
+    const [isUser, setUser] = useState("")
+    const [isUserId, setUserId] = useState("")
+    
     const navigate = useNavigate()
+    const authenticate = async () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null){
+          navigate("/")
+        } else {
+          let decode = jwtDecode(storage)
+          const db = await get(child(ref(database),`${decode.user_id}/UserProfile/vidProfile`))
+          console.log(db.val().vidUrl,"test");
+          setUser(decode.email)
+          setUserId(decode.user_id)
+          setVideo(db.val().vidUrl)
+        }
+      }
 
     const dataTable = async () => {
         try {
-            const db = await get(child(ref(database),`${userId}/UserProfile/vidProfile`))
+            const db = await get(child(ref(database),`${isUser}/UserProfile/vidProfile`))
             const video = db.val()
-            console.log(db.val(),"==> ini datanya");
             setVideo(video.vidUrl)
         } catch (error) {
             console.log(error);
         }
     }
-
-    const authenticate = () => {
-        onAuthStateChanged(authFirebase, (user) => {
-        if (user) {
-              setUserId(user.uid)
-        } else {
-            navigate("/")
-        }
-    })}
     
     const createDb = (el) => {
         const userProfile = { vidUrl : el }
-        set(ref(database,`${userId}/UserProfile/vidProfile`), userProfile)
+        set(ref(database,`${isUserId}/UserProfile/vidProfile`), userProfile)
     }
  
     const submitVideo = (e) => {
@@ -62,7 +67,7 @@ export default function VideoPlayer() {
     useEffect(()=>{
         authenticate()
         dataTable()
-    },[dataTable])
+    },[])
     
     return (
         <>
@@ -70,8 +75,8 @@ export default function VideoPlayer() {
                 <div className="d-flex justify-content-center">
                     <h2>Video Upload</h2>
                 </div>
-                <div className="input-group d-flex justify-content-center">
-                    <form onSubmit={handleSubmit}>
+                <div className="container input-group d-flex justify-content-center">
+                    <form className="mb-2" onSubmit={handleSubmit}>
                         <input 
                             type="file"
                             className="form-control" 
@@ -81,6 +86,17 @@ export default function VideoPlayer() {
                             <button className="btn btn-outline-secondary mt-3" type="submit">Upload</button>
                         </div>
                     </form>
+                    {isVideo &&
+                     <video
+                        width={360}
+                        height={330}
+                        muted
+                        autoPlay
+                        loop>
+                             <source src={isVideo} type="video/mp4"/>
+                    </video>
+                    }
+                   
                 </div>
             </div>
         </>

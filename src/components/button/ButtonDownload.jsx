@@ -53,7 +53,8 @@ function generateSimplePDF() {
           [ isData.record[5].gameRecord.pickWinner, isData.record[5].totalGame, isData.record[5].totalPoint ], 
         ],
     })
-    doc.save("Document.pdf");
+    // untuk ganti nama
+    doc.save("Document.pdf"); 
   }
 
   return (
