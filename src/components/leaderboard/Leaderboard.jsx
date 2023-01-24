@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react"
-import { onAuthStateChanged } from "firebase/auth";
-import authFirebase from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
