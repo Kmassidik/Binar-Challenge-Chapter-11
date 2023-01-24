@@ -31,7 +31,7 @@ export default function LandingGame() {
                 <VideoPlayer />
                 <Link to="/Games">
                     <div>
-                        <button type="button" className="button-games btn btn-outline-warning mt-4 fw-bold" href="/games">Play Now</button>
+                        <button type="button" className="button-games btn btn-outline-costom mt-4 fw-bold" href="/games">Play Now</button>
                     </div>
                 </Link>
             </div>
