@@ -68,10 +68,10 @@ useEffect (() => {
                     <p></p>
                     </div>
                     <div className="profile__achievements-emblem">
-                        <img src="https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2021/02/26143931/lambang-garuda-pancasila-810x608.jpg" alt="dummy" />
-                        <img src="https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2021/02/26143931/lambang-garuda-pancasila-810x608.jpg" alt="dummy" />
-                        <img src="https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2021/02/26143931/lambang-garuda-pancasila-810x608.jpg" alt="dummy" />
-                        <img src="https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2021/02/26143931/lambang-garuda-pancasila-810x608.jpg" alt="dummy" />
+                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526978/Achievment/Epic_xqjxr7.png" alt="dummy" />
+                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526840/Achievment/LegendRanked_izgbjb.png" alt="dummy" />
+                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526841/Achievment/Mitik_v7lsmn.png" alt="dummy" />
+                        <img src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674526838/Achievment/MitikalGlory_cdzuxt.png" alt="dummy" />
                     </div>
                     
                 </div>
