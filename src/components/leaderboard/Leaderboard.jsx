@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import { database } from "../../services/firebase"
-import { getDatabase, ref, get, child,query,orderByChild } from "firebase/database"
+import { getDatabase, ref,query,orderByChild } from "firebase/database"
 const Leaderboard = () => {
 
     const [userId, setUserId] = useState("")
@@ -24,6 +24,7 @@ const Leaderboard = () => {
             console.log(mostViewedPosts);
             console.log(mostViewedPosts2);
             setUserId(decode.userId)
+            console.log(userId);
         }
     }
 
