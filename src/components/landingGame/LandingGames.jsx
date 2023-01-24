@@ -18,8 +18,8 @@ export default function LandingGame() {
 
             {/* Game Detail */}
             <div className="container game-detail text-black mb-3">
-                <div class="row mb-3">
-                    <div class="col">
+                <div className="row mb-3">
+                    <div className="col">
                         <div className="fw-bold">
                             <h1 className="">Game Details</h1>
                         </div>
@@ -30,8 +30,8 @@ export default function LandingGame() {
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div className="row">
+                    <div className="col">
                         <div className="">
                             <div className="fw-bold">
                                 <h5>How To Play</h5>
@@ -45,7 +45,7 @@ export default function LandingGame() {
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div className="col">
                         <div className="">
                             <div className="fw-bold">
                                 <h5>Release Date</h5>

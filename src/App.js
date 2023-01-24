@@ -11,21 +11,18 @@ import {
 } from "./pages"
 import { Navbar, Footer } from "./components";
 
-
-
-
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/Games" element={<Games />} />
-          <Route path="/Gamedetails" element={<GameDetails />} />
-          <Route path="/Leaderboard" element={<Leaderboard />} />
-          <Route path="/Games/Table" element={<Table />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/Profile" element={<Profile />} />
+          <Route exact path="/Games" element={<Games />} />
+          <Route exact path="/Gamedetails" element={<GameDetails />} />
+          <Route exact path="/Leaderboard" element={<Leaderboard />} />
+          <Route exact path="/Games/Table" element={<Table />} />
         </Routes>
       <Footer />
       </BrowserRouter>

@@ -3,14 +3,13 @@ import authFirebase from "../../services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import ModalFailed from "./ModalFailed"
-
 export default function ModalSignin() {
     const [state, setState] = useState({
         email: "",
         password: ""
       });
     const navigate = useNavigate()
-    
+
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setState((prevProps) => ({
@@ -19,13 +18,13 @@ export default function ModalSignin() {
         }));
     };
 
-    
     const handleSubmit = (event) => {
         event.preventDefault();
         signInWithEmailAndPassword(authFirebase, state.email, state.password)
             .then((userCredential) => {
                 const jwtToken = userCredential.user.accessToken
                 localStorage.setItem("accesstoken",jwtToken )
+                // navigate("/",{replace: true})
                 navigate(0)
             })
             .catch(() => {
