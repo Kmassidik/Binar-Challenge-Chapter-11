@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import authFirebase from "../../services/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import ModalFailed from "./ModalFailed"
+// import ModalFailed from "./ModalFailed"
 
 export default function ModalSignup() {
     const [state, setState] = useState({
@@ -25,7 +25,7 @@ export default function ModalSignup() {
             createUserWithEmailAndPassword(authFirebase, state.email, state.password)
             navigate(0)
         } catch (err) {
-            <ModalFailed/>
+            alert(err)
         }
     };
     return(

@@ -1,17 +1,37 @@
-import React from "react";
+import React , {useEffect, useState}from "react";
 import { Link } from "react-router-dom";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import "./landingGame.css"
+import { useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
 export default function LandingGame() {
 
-    return(
+    const [userId, setUserId] = useState("")
+
+    const navigate = useNavigate()
+
+    const authenticate = () => {
+        let storage = localStorage.getItem("accesstoken")
+        if (storage === "" || storage === null) {
+            navigate("/")
+        } else {
+            let decode = jwtDecode(storage)
+            setUserId(decode.userId)
+        }
+    }
+
+    useEffect(() => {
+        authenticate()
+    }, [userId])
+
+    return (
         <>
-            <div className="container-fluid" style={{"minHeight":"100vh"}}>
-                <VideoPlayer/>
+            <div className="container-fluid" style={{ "minHeight": "100vh" }}>
+                <VideoPlayer />
                 <Link to="/Games">
                     <div>
-                        <button type="button" className="button-games btn btn-outline-warning mt-4 fw-bold" href="/games">Play Now</button>
+                        <button type="button" className="button-games btn btn-outline-costom mt-4 fw-bold" href="/games">Play Now</button>
                     </div>
                 </Link>
             </div>
@@ -60,7 +80,7 @@ export default function LandingGame() {
                             </div>
                             <div>
                                 <p>
-                                Binar Academy Full Stack Web Developer Wave 25
+                                    Binar Academy Full Stack Web Developer Wave 25
                                 </p>
                             </div>
                         </div>

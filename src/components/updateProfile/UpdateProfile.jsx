@@ -45,6 +45,7 @@ export default function UpdateProfile(props) {
             alert(err);
         })    
     }
+<<<<<<< HEAD
     useEffect (() => {
         authenticate()
         }, [])
@@ -60,6 +61,27 @@ export default function UpdateProfile(props) {
                             <div className="modal-body text-white">
                                 <div className="d-flex flex-row justify-content-end">
                                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+=======
+
+  return (
+<div className="update-profile">
+            <button type="button" className="button-edit-profile btn btn-outline-primary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                {props.text}
+            </button>
+
+            <div className="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-body text-white">
+                            <div className="d-flex flex-row justify-content-end">
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="">
+                            </div>
+                        <form onSubmit={handleSubmit} className="p-4 d-flex flex-column justify-content-center align-items-center">
+                                <div className="w-100 mb-3 form-title d-flex flex-row justify-content-center align-items-center ">
+                                    <h5>Your name and profile picture in Binar Games</h5>
+>>>>>>> 7eca076157759b2174429a63edeb1d736061076e
                                 </div>
                                 <form onSubmit={handleSubmit} className="p-4 d-flex flex-column justify-content-center align-items-center">
                                     <div className="w-100 mb-3 form-title d-flex flex-row justify-content-center align-items-center ">

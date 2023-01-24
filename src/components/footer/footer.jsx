@@ -14,16 +14,16 @@ export default function Footer() {
                 <div className="row d-flex">
                   <div className=""></div>
                     <div className="d-flex justify-content-center">
-                      <a href="" className="me-2">
-                        <img width={35} src={facebook} alt="facebook" />
+                      <a href="https://www.facebook.com/" className="me-2">
+                        <img width={35} src={facebook} alt="facebook"/>
                       </a>
-                      <a href="" className="ms-2 me-2">
+                      <a href="https://twitter.com/" className="ms-2 me-2">
                         <img width={35} src={twitter} alt="twitter" />
                       </a>
-                      <a href="" className="ms-2 me-2">
+                      <a href="https://www.youtube.com/" className="ms-2 me-2">
                         <img src={vector} alt="youtube" />
                       </a>
-                      <a href="" className="ms-2">
+                      <a href="https://www.twitch.tv/" className="ms-2">
                         <img width={35} src={twitch} alt="twitch" />
                       </a>
                     </div>
