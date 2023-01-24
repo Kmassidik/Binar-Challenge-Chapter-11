@@ -60,7 +60,7 @@ export default function UpdateProfile(props) {
                     <div className="modal-content">
                         <div className="modal-body text-white">
                             <div className="d-flex flex-row justify-content-end">
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" className="btn-button-close btn text-white d-flex" data-bs-dismiss="modal" aria-label="Close">X</button>
                             </div>
                                 <form onSubmit={handleSubmit} className="p-4 d-flex flex-column justify-content-center align-items-center">
                                     <div className="w-100 mb-3 form-title d-flex flex-row justify-content-center align-items-center ">
@@ -80,7 +80,7 @@ export default function UpdateProfile(props) {
                                     </div>
                                     <input value={isName} onChange={(e) => setName(e.target.value)} className="mb-3" type="text" placeholder="How should we display your name?" />
                                         <p className="para mb-4">Your display name is given in your reviews, comments, ratings, and responses. If you change it, the new name will also apply to your previously posted content.</p>
-                                    <button type="submit" className="modal-button btn btn-warning">Submit</button>
+                                    <button type="submit" className="modal-button btn btn-outline-warning fw-bold" data-bs-dismiss="modal" aria-label="Close">Submit</button>
                                 </form>
                             </div>
                         </div>

@@ -95,7 +95,6 @@ export default function VideoPlayer() {
                              <source src={isVideo} type="video/mp4"/>
                     </video>
                     }
-                   
                 </div>
             </div>
         </>
