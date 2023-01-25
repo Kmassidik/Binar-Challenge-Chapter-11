@@ -67,7 +67,7 @@ export default function ModalSignin() {
                                         <div className="alert alert-danger d-flex align-items-center" role="alert" timeout={2000}>
                                             {/* <svg className="bi flex-shrink-0 me-2" width={24} height={24} role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg> */}
                                             <div>
-                                                there is error!!
+                                                There's Something Wrong, Please try again
                                             </div>
                                         </div>
                                     </>
