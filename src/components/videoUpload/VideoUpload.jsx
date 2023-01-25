@@ -8,7 +8,7 @@ export default function VideoPlayer() {
     const [isVideo, setVideo] = useState("")
     const [isUser, setUser] = useState("")
     const [isUserId, setUserId] = useState("")
-    const [isData, setData] = useState(false)
+    const [isLoading, setLoading] = useState(false)
     
     const navigate = useNavigate()
     const authenticate = async () => {
@@ -27,13 +27,14 @@ export default function VideoPlayer() {
     const dataTable = async () => {
         try {
             const db = await get(child(ref(database),`${isUser}/UserProfile/vidProfile`))
-            const video = db.val()
+            const video = db?.val()
             setVideo(video?.vidUrl)
         } catch (error) {
-            console.log(error);
+            error
         }
     }
     const submitVideo = (e) => {
+        setLoading(true)
         const video = e.target.files[0]
         console.log(video);
         const data = new FormData()
@@ -48,20 +49,11 @@ export default function VideoPlayer() {
             .then((res) => res.json())
             .then((data) => {
                 set(ref(database,`${isUserId}/UserProfile/vidProfile`), { vidUrl : data.url })
-                console.log(data.url);
-                setData(true)
+                setLoading(false)
             }).catch((err) => {
-                console.log(err);
+                err
+                setLoading(false)
             })
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (isData !== false) {
-            navigate(0)
-        }else {
-            alert("Sabar masih LOADING")
-        }
     }
     useEffect(()=>{
         authenticate()
@@ -75,14 +67,17 @@ export default function VideoPlayer() {
                     <h2>Video Upload</h2>
                 </div>
                 <div className="container input-group d-flex justify-content-center">
-                    <form className="mb-2" onSubmit={handleSubmit}>
+                    <form className="mb-2">
                         <input 
                             type="file"
                             className="form-control" 
                             placeholder="Upload your file" 
                             onChange={(e) => {submitVideo(e)}}/>
                         <div className="input-group-append">
-                            <button className="btn btn-outline-secondary mt-3" type="submit">Upload</button>
+                            {isLoading ? 
+                            <p>waiting for uploading</p>:
+                            <p>upload yuor video</p>
+                            }
                         </div>
                     </form>
                     {isVideo &&

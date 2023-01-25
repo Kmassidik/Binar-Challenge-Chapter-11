@@ -14,7 +14,6 @@ const Leaderboard = () => {
           navigate("/")
         } else {
           let item = db?.val()
-          console.log(item);
           if (item !== null|| item !== undefined) {
             const leaderboardArray = Object.entries(item).map(([id, data]) => ({
                 id,
@@ -38,16 +37,16 @@ const Leaderboard = () => {
                         <div className="mt-1 fs-1 fw-bold">Leaderboard</div>
                         <div className="container mt-3">
                             <div className="py-2">
-                            {isData.map(index => 
+                            {isData.map((el,index) => 
                                 <div key={index} className="container mt-3">
                                     <div className="py-2 mx-5">
                                         <div className="d-flex justify-content-evenly border border-dark border-2 rounded py-3">
                                             <div className="d-flex me-5">
                                                 <img className="rounded-circle" width={45} src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674465805/Profile/l1ixovppehxy6mt3ifnx.jpg" alt="" />
-                                                <h6 className="me-5 m-2 mt-3">{index.id}</h6>
+                                                <h6 className="me-5 m-2 mt-3">{el.id}</h6>
                                             </div>
                                             <div className="d-flex">
-                                                <h6 className="ms-5 mt-3">{index.totalPoint}</h6>
+                                                <h6 className="ms-5 mt-3">{el.totalPoint}</h6>
                                             </div>
                                         </div>
                                     </div>

@@ -13,46 +13,46 @@ describe("test all pages render", () => {
       </Router>,
     )
   })
-  // test("renders Register pages", async () => {
-  //   render(
-  //     <Router>
-  //       <ModalSignup/>
-  //     </Router>,
-  //   )
-  // })
-  // test("renders Home pages", async () => {
-  //   render(
-  //     <Router>
-  //       <Home/>
-  //     </Router>,
-  //   )
-  // })
-  // test("renders Profile pages", async () => {
-  //   render(
-  //     <Router>
-  //       <Profile/>
-  //     </Router>,
-  //   )
-  // })
-  // test("renders GameDetails pages", async () => {
-  //   render(
-  //     <Router>
-  //       <GameDetails/>
-  //     </Router>,
-  //   )
-  // test("renders Games pages", async () => {
-  //   render(
-  //     <Router>
-  //       <Games/>
-  //     </Router>,
-  //   )
-  // })
-  // })
-  // test("renders Leaderboard pages", async () => {
-  //   render(
-  //     <Router>
-  //       <Leaderboard/>
-  //     </Router>,
-  //   )
-  // })
+  test("renders Register pages", async () => {
+    render(
+      <Router>
+        <ModalSignup/>
+      </Router>,
+    )
+  })
+  test("renders Home pages", async () => {
+    render(
+      <Router>
+        <Home/>
+      </Router>,
+    )
+  })
+  test("renders Profile pages", async () => {
+    render(
+      <Router>
+        <Profile/>
+      </Router>,
+    )
+  })
+  test("renders GameDetails pages", async () => {
+    render(
+      <Router>
+        <GameDetails/>
+      </Router>,
+    )
+  test("renders Games pages", async () => {
+    render(
+      <Router>
+        <Games/>
+      </Router>,
+    )
+  })
+  })
+  test("renders Leaderboard pages", async () => {
+    render(
+      <Router>
+        <Leaderboard/>
+      </Router>,
+    )
+  })
 })
