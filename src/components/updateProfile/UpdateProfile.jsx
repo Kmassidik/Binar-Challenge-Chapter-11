@@ -23,7 +23,6 @@ export default function UpdateProfile(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         set(ref(database,`${userId}/UserProfile/nameProfile`), { userName: isName })
-        console.log("ganti nama jadi dong");
     }
     const handleImageChange = async (e) => {
         const image = e.target.files[0]
@@ -38,7 +37,6 @@ export default function UpdateProfile(props) {
         })
         .then((res) => res.json())
         .then((data) => { 
-            console.log(data.url);
             set(ref(database,`${userId}/UserProfile/imgProfile`), {imgUrl: data.url })
             setImg(data.url)
         }).catch((err) => {

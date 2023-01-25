@@ -36,7 +36,6 @@ export default function VideoPlayer() {
     const submitVideo = (e) => {
         setLoading(true)
         const video = e.target.files[0]
-        console.log(video);
         const data = new FormData()
         data.append("file", video)
         data.append("upload_preset", "profileVID")

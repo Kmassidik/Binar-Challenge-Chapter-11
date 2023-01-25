@@ -37,7 +37,7 @@ const dataTable = async () => {
         setData(item)
         isData
     } catch (error) {
-        console.log(error);
+        error;
     }
 }
 

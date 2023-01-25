@@ -65,7 +65,7 @@ export default function History() {
             const item = db.val()
             setData(item)
         } catch (error) {
-            console.log(error);
+            error;
         }
     }
 

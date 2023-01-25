@@ -18,7 +18,7 @@ export default function getPdf() {
         const video = db.val()
         setData(video)
     } catch (error) {
-        console.log(error);
+        error;
     }
 }
 
