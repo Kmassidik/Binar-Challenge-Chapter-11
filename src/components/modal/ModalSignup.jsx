@@ -28,7 +28,7 @@ export default function ModalSignup() {
             createUserWithEmailAndPassword(authFirebase, state.email, state.password)
             navigate(0)
         } catch (err) {
-            setError(true)
+            setError(" ")
         }
     };
     return (
