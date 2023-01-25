@@ -1,6 +1,6 @@
 import React from "react"
 import Carousel from "../carousel/Carousel"
-export default function box(el){
+export default function Box(el){
     return(
         <>
             <div className="fs-3 fw-bolder">
@@ -8,7 +8,7 @@ export default function box(el){
             </div>
             <div className="container mb-2">
                 <div className="my-4">
-                    <Carousel cols={el.cols} rows={el.rows} gap={el.gap}/>
+                    <Carousel items={el.items} cols={el.cols} rows={el.rows} gap={el.gap}/>
                 </div>
             </div>
         </>

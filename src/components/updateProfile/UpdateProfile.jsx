@@ -39,7 +39,7 @@ export default function UpdateProfile(props) {
         .then((res) => res.json())
         .then((data) => { 
             console.log(data.url);
-            set(ref(database,`${userId}/UserProfile/imgProfile`), {imgUrl: data.url })
+            // set(ref(database,`${userId}/UserProfile/imgProfile`), {imgUrl: data.url })
             setImg(data.url)
         }).catch((err) => {
             alert(err);
