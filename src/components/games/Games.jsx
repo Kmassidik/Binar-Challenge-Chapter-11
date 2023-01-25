@@ -24,6 +24,7 @@ export default function FirebaseGameSuit(){
   const [isId, setId] = useState(0)
   const [isPoint, setPoint] = useState(0)
   const [isUserId, setUserId] = useState("")
+  const [isName, setName] = useState("Anonymous")
   const choices = ["batu", "kertas", "gunting"]
   const rec = "record"
   const url = "https://github.com/orgs/Game-Binar-Wave-25/dashboard"
@@ -73,17 +74,17 @@ export default function FirebaseGameSuit(){
       navigate("/")
     } else {
       let decode = jwtDecode(storage)
+      const db = await get(child(ref(database),`${decode.user_id}/GameHistory`))
+      const dbPoint = await get(child(ref(database),`${decode.user_id}/UserProfile`))
       setUserId(decode.user_id)
       setEmail(decode.email)
-      const db = await get(child(ref(database),`${decode.user_id}/GameHistory`))
-      const dbPoint = await get(child(ref(database),`${decode.user_id}/UserProfile/result`))
       let items = db?.val()
       let items2 = dbPoint?.val()
-      console.log(items2);
       let banyakData = items?.record?.length
       if (banyakData !== undefined) {
         setId(banyakData)
-        setPoint(items2.totalPoint)
+        setPoint(items2?.result?.totalPoint)
+        setName(items2?.nameProfile?.userName)
       }
     }
 }
@@ -164,7 +165,7 @@ export default function FirebaseGameSuit(){
     if (userChoice !== null) {
       set(ref(database,`${isUserId}/GameHistory/${rec}/${isId}`), inputUser)
       set(ref(database,`${isUserId}/UserProfile/result`), { totalPoint : isPoint })
-      set(ref(database,"Leaderboard/"+isUserId), { totalPoint : isPoint })
+      set(ref(database,"Leaderboard/"+isName), { totalPoint : isPoint })
     }
   },[userChoice, computerChoice, isId, result, isPoint])
 
@@ -173,7 +174,7 @@ export default function FirebaseGameSuit(){
         <div className="container py-2">
                 <div className="row text-center">
                 <div className="col">
-                    <div className="mb-5 "><h1>Player</h1></div>
+                    <div className="mb-5 "><h1>{isName}</h1></div>
                     <div className="my-3 option" 
                     style={{
                             backgroundColor: isBatu ? "#933093" : "", 
