@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { database } from "../../services/firebase"
-import { ref, set } from "firebase/database"
+import { ref, set, get, child } from "firebase/database"
 import { useNavigate, Link } from "react-router-dom"
 import { 
   TwitterShareButton,
@@ -20,13 +20,14 @@ export default function FirebaseGameSuit(){
   const [userChoice, setUserChoice] = useState(null)
   const [computerChoice, setComputerChoice] = useState(null)
   const [result, setResult] = useState("")
-  const [id, setId] = useState(0)
-  const [point, setPoint] = useState(0)
+  const [isEmail, setEmail] = useState("")
+  const [isId, setId] = useState(0)
+  const [isPoint, setPoint] = useState(0)
+  const [isUserId, setUserId] = useState("")
+  const [isName, setName] = useState("Anonymous")
   const choices = ["batu", "kertas", "gunting"]
   const rec = "record"
   const url = "https://github.com/orgs/Game-Binar-Wave-25/dashboard"
-  const [isUser, setUser] = useState("")
-  const [isUserId, setUserId] = useState("")
   const navigate = useNavigate()
   const [isBatu, setBatu] = useState(false);
   const [isGunting, setGunting] = useState(false);
@@ -40,7 +41,7 @@ export default function FirebaseGameSuit(){
     return randomChoice
   }
   const handleClick = (choice, bot) => {
-    setId(id+1)
+    setId(isId+1)
     Start(choice,bot)
   }
   const seri = (e,a) => {
@@ -67,22 +68,32 @@ export default function FirebaseGameSuit(){
       setBotKertas(true)
     }
   }
-  const authenticate = () => {
+  const authenticate = async () => {
     let storage = localStorage.getItem("accesstoken")
     if (storage === "" || storage === null){
-      navigate("/login")
+      navigate("/")
     } else {
       let decode = jwtDecode(storage)
-      setUser(decode.email)
+      const db = await get(child(ref(database),`${decode.user_id}/GameHistory`))
+      const dbPoint = await get(child(ref(database),`${decode.user_id}/UserProfile`))
       setUserId(decode.user_id)
+      setEmail(decode.email)
+      let items = db?.val()
+      let items2 = dbPoint?.val()
+      let banyakData = items?.record?.length
+      if (banyakData !== undefined) {
+        setId(banyakData)
+        setPoint(items2?.result?.totalPoint)
+        setName(items2?.nameProfile?.userName)
+      }
     }
-  }
+}
   const Start = (p1,p2) => {
     setUserChoice(p1)
     setComputerChoice(p2)
     if (p1 === "batu" && p2 === "gunting") {
       setResult("YOU WIN!")
-      setPoint(point+10)
+      setPoint(isPoint+10)
       setBatu(true)
       setGunting(false)
       setKertas(false)
@@ -99,7 +110,7 @@ export default function FirebaseGameSuit(){
       setBotKertas(true)
     } else if (p1 === "gunting" && p2 === "kertas") {
       setResult("YOU WIN!")
-      setPoint(point+10)
+      setPoint(isPoint+10)
       setBatu(false)
       setGunting(true)
       setKertas(false)
@@ -133,7 +144,7 @@ export default function FirebaseGameSuit(){
     } else {
       seri(p1,p2)
       setResult("DRAW")
-      setPoint(point+5)
+      setPoint(isPoint+5)
     }
   }
 
@@ -141,9 +152,9 @@ export default function FirebaseGameSuit(){
     authenticate()
     const inputUser = {
       userId: isUserId,
-      email: isUser,
-      totalGame: id,
-      totalPoint: point,
+      email: isEmail,
+      totalGame: isId,
+      totalPoint: isPoint,
       gameRecord: 
         {
           pickBot: computerChoice,
@@ -152,16 +163,18 @@ export default function FirebaseGameSuit(){
         }
     }
     if (userChoice !== null) {
-      set(ref(database,`${isUserId}/gameHistory/${rec}/${id}`), inputUser)
+      set(ref(database,`${isUserId}/GameHistory/${rec}/${isId}`), inputUser)
+      set(ref(database,`${isUserId}/UserProfile/result`), { totalPoint : isPoint })
+      set(ref(database,"Leaderboard/"+isName), { totalPoint : isPoint })
     }
-  },[userChoice, computerChoice, id, result, point])
+  },[userChoice, computerChoice, isId, result, isPoint])
 
   return (
     <>
         <div className="container py-2">
                 <div className="row text-center">
                 <div className="col">
-                    <div className="mb-5 "><h1>Player</h1></div>
+                    <div className="mb-5 "><h1>{isName}</h1></div>
                     <div className="my-3 option" 
                     style={{
                             backgroundColor: isBatu ? "#933093" : "", 
@@ -211,7 +224,7 @@ export default function FirebaseGameSuit(){
                 </div>
                 </div>
                 <div className="fs-3 font-monospace mx-1 mt-4">
-                    Your Point : {point}
+                    Your Point : {isPoint}
                     {result && <>, Result : {result}</>}
                 </div>
                 <div className="container d-flex justify-content-center mt-3">
@@ -234,8 +247,8 @@ export default function FirebaseGameSuit(){
                     </Link>
                 </div>
                 <div className="mt-4">
-                  <Link to="/gameSuitTable">
-                    <button type="button" className="button-ingame btn btn-outline-warning">History</button>
+                  <Link to="/Games/Table">
+                    <button type="button" className="button-ingame btn btn-outline-costum fw-bold">History</button>
                   </Link>
                 </div>
         </div>

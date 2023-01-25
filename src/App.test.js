@@ -1,29 +1,58 @@
 import { render } from "@testing-library/react";
 import { GameDetails, Home, Games, Leaderboard, Profile} from "./pages"
 import { describe,test } from "@jest/globals";
-import { ModalSignup, ModalSignin } from "./components";
+import { ModalSignin, ModalSignup } from "./components";
+import { BrowserRouter as Router } from "react-router-dom";
 
 
 describe("test all pages render", () => { 
-  test("renders Register pages", () => {
-    render(<ModalSignup/>)
+  test("renders Login pages", async () => {
+    render(
+      <Router>
+        <ModalSignin/>
+      </Router>,
+    )
   })
-  test("renders Login pages", () => {
-    render(<ModalSignin/>)
+  test("renders Register pages", async () => {
+    render(
+      <Router>
+        <ModalSignup/>
+      </Router>,
+    )
   })
-  test("renders Home pages", () => {
-    render(<Home/>)
+  test("renders Home pages", async () => {
+    render(
+      <Router>
+        <Home/>
+      </Router>,
+    )
   })
-  test("renders Profile pages", () => {
-    render(<Profile/>)
+  test("renders Profile pages", async () => {
+    render(
+      <Router>
+        <Profile/>
+      </Router>,
+    )
   })
-  test("renders Games pages", () => {
-    render(<Games/>)
+  test("renders GameDetails pages", async () => {
+    render(
+      <Router>
+        <GameDetails/>
+      </Router>,
+    )
+  test("renders Games pages", async () => {
+    render(
+      <Router>
+        <Games/>
+      </Router>,
+    )
   })
-  test("renders Games pages", () => {
-    render(<GameDetails/>)
   })
-  test("renders Leaderboard pages", () => {
-    render(<Leaderboard/>)
+  test("renders Leaderboard pages", async () => {
+    render(
+      <Router>
+        <Leaderboard/>
+      </Router>,
+    )
   })
 })

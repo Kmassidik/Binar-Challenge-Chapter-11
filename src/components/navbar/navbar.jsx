@@ -55,11 +55,20 @@ export default function Navbar() {
                             }
                             { isUser && 
                             <>
-                            <li className="nav-item">
-                                <NavLink className={activeLink} aria-current="page" to="/leaderboard">
-                                    Leaderboard
-                                </NavLink>
-                            </li>
+                                <li className="nav-item">
+                                    <NavLink className={activeLink} aria-current="page" to="/Gamedetails">
+                                        Game
+                                    </NavLink>
+                                </li>
+                            </>
+                            }
+                            { isUser && 
+                            <>
+                                <li className="nav-item">
+                                    <NavLink className={activeLink} aria-current="page" to="/Leaderboard">
+                                        Leaderboard
+                                    </NavLink>
+                                </li>
                             </>
                             }
                         </ul>

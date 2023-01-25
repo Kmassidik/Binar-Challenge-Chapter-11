@@ -1,7 +1,16 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box, Headline, Testimoni, } from "../components"
 
-export default function Home() {
+export default function Home({userCredential}) {
+
+    useEffect(()=>{
+        console.log("halow");
+        if (userCredential) {
+            const jwtToken = userCredential.user.accessToken
+            localStorage.setItem("accesstoken",jwtToken )
+            console.log("ini datanya ==>",userCredential);
+        }
+    },[])
     return(
         <>
             <div className="mb-3 mt-3">
