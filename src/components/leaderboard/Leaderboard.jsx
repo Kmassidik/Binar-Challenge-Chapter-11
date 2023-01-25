@@ -1,37 +1,34 @@
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
-import jwtDecode from "jwt-decode";
 import { database } from "../../services/firebase"
-import { getDatabase, ref,query,orderByChild } from "firebase/database"
+import { ref,get,child } from "firebase/database"
 const Leaderboard = () => {
 
-    const [userId, setUserId] = useState("")
-
+    const [isData, setData] = useState([])
     const navigate = useNavigate()
 
     const authenticate = async () => {
         let storage = localStorage.getItem("accesstoken")
+        const db = await get(child(ref(database), "Leaderboard"))
         if (storage === "" || storage === null){
           navigate("/")
         } else {
-          let decode = jwtDecode(storage)
-        //   const dbPoint = await get(child(ref(database),"Leaderboard"))
-        let db = getDatabase()
-        const mostViewedPosts = query(ref(db, "posts"), orderByChild("metrics/views"));
-        const mostViewedPosts2 = query(ref(database, "posts"));
-            // let items = dbPoint.val()
-            console.log(typeof mostViewedPosts);
-            console.log(mostViewedPosts);
-            console.log(mostViewedPosts2);
-            setUserId(decode.userId)
-            console.log(userId);
+          let item = db?.val()
+          console.log(item);
+          if (item !== null|| item !== undefined) {
+            const leaderboardArray = Object.entries(item).map(([id, data]) => ({
+                id,
+                totalPoint: data.totalPoint
+                }));
+                const sorting = leaderboardArray.sort((a, b) => b.totalPoint - a.totalPoint);
+                setData(sorting)
+          }
         }
     }
 
     useEffect(() => {
         authenticate()
-        console.log("test");
-    },[])
+    },[authenticate])
 
     return (
         <>
@@ -41,18 +38,21 @@ const Leaderboard = () => {
                         <div className="mt-1 fs-1 fw-bold">Leaderboard</div>
                         <div className="container mt-3">
                             <div className="py-2">
-                                <div className="d-flex justify-content-evenly border border-dark border-2 rounded py-3">
-                                    <div className="d-flex">
-                                        <h5 className="me-5 mt-3">1</h5>
-                                    </div>
-                                    <div className="d-flex me-5">
-                                        <img className="rounded-circle" width={45} src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674465805/Profile/l1ixovppehxy6mt3ifnx.jpg" alt="" />
-                                        <h6 className="me-5 m-2 mt-3">Name</h6>
-                                    </div>
-                                    <div className="d-flex">
-                                        <h6 className="ms-5 mt-3">Point</h6>
+                            {isData.map(index => 
+                                <div key={index} className="container mt-3">
+                                    <div className="py-2 mx-5">
+                                        <div className="d-flex justify-content-evenly border border-dark border-2 rounded py-3">
+                                            <div className="d-flex me-5">
+                                                <img className="rounded-circle" width={45} src="https://res.cloudinary.com/dtochq6ko/image/upload/v1674465805/Profile/l1ixovppehxy6mt3ifnx.jpg" alt="" />
+                                                <h6 className="me-5 m-2 mt-3">{index.id}</h6>
+                                            </div>
+                                            <div className="d-flex">
+                                                <h6 className="ms-5 mt-3">{index.totalPoint}</h6>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            )}
                             </div>
                         </div>
                     </div>
