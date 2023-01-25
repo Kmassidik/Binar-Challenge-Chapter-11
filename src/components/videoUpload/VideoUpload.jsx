@@ -8,6 +8,7 @@ export default function VideoPlayer() {
     const [isVideo, setVideo] = useState("")
     const [isUser, setUser] = useState("")
     const [isUserId, setUserId] = useState("")
+    const [isData, setData] = useState(false)
     
     const navigate = useNavigate()
     const authenticate = async () => {
@@ -17,10 +18,9 @@ export default function VideoPlayer() {
         } else {
           let decode = jwtDecode(storage)
           const db = await get(child(ref(database),`${decode.user_id}/UserProfile/vidProfile`))
-          console.log(db.val().vidUrl,"test");
           setUser(decode.email)
           setUserId(decode.user_id)
-          setVideo(db.val().vidUrl)
+          setVideo(db.val()?.vidUrl)
         }
       }
 
@@ -28,19 +28,14 @@ export default function VideoPlayer() {
         try {
             const db = await get(child(ref(database),`${isUser}/UserProfile/vidProfile`))
             const video = db.val()
-            setVideo(video.vidUrl)
+            setVideo(video?.vidUrl)
         } catch (error) {
             console.log(error);
         }
     }
-    
-    const createDb = (el) => {
-        const userProfile = { vidUrl : el }
-        set(ref(database,`${isUserId}/UserProfile/vidProfile`), userProfile)
-    }
- 
     const submitVideo = (e) => {
         const video = e.target.files[0]
+        console.log(video);
         const data = new FormData()
         data.append("file", video)
         data.append("upload_preset", "profileVID")
@@ -52,7 +47,9 @@ export default function VideoPlayer() {
         })
             .then((res) => res.json())
             .then((data) => {
-                createDb(data.url)
+                set(ref(database,`${isUserId}/UserProfile/vidProfile`), { vidUrl : data.url })
+                console.log(data.url);
+                setData(true)
             }).catch((err) => {
                 console.log(err);
             })
@@ -60,14 +57,16 @@ export default function VideoPlayer() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setTimeout(() => {
+        if (isData !== false) {
             navigate(0)
-        }, 5000);
+        }else {
+            alert("Sabar masih LOADING")
+        }
     }
     useEffect(()=>{
         authenticate()
         dataTable()
-    },[])
+    },[dataTable])
     
     return (
         <>
@@ -96,7 +95,6 @@ export default function VideoPlayer() {
                              <source src={isVideo} type="video/mp4"/>
                     </video>
                     }
-                   
                 </div>
             </div>
         </>

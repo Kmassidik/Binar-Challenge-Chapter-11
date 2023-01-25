@@ -1,16 +1,15 @@
 .update-profile .modal-content {
-    background-color: #933093; 
+    background: #763670; 
 }
 
 .update-profile .modal-button {
     border-radius: 30px;
-    background-color: #f99d1c;
     width: 100%;
     margin-bottom: 1rem;
 }
 
 .update-profile .modal-button:hover {
-    background: #f7b04c !important;
+    background-color: #933093 !important;
 }
 
 .update-profile .modal-logo {
@@ -70,4 +69,8 @@
 .button-edit-profile {
     color: #933093;
     border-color: #933093;
+}
+
+.btn-button-close:hover {
+    background-color: #933093 !important;
 }

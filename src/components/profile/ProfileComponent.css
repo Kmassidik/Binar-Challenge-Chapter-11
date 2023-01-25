@@ -95,6 +95,10 @@
     height: 84px;
 }
 
+.edit-icon {
+    position: absolute;
+}
+
 @media screen and (max-width: 1050px) {
     .profile .profile__content .profile__desc .profile__achievements {
         padding-top: 2rem;
