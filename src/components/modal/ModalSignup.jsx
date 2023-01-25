@@ -11,6 +11,7 @@ export default function ModalSignup() {
     });
 
     const [error, setError] = useState(false)
+    const [isSpam, setSpam] = useState(0)
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -19,17 +20,25 @@ export default function ModalSignup() {
             [name]: value
         }));
     };
-
     const navigate = useNavigate()
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        try {
-            createUserWithEmailAndPassword(authFirebase, state.email, state.password)
-            navigate(0)
-        } catch (err) {
-            setError(" ")
+        setSpam(isSpam+1)
+        if (isSpam > 3 ) {
+           return alert("Please STOP spamm the button")
         }
+        createUserWithEmailAndPassword(authFirebase, state.email, state.password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            user
+            navigate(0)
+        })
+        .catch((error) => {
+            error
+            setError(true)
+            // ..
+        });
     };
     return (
         <>
@@ -44,10 +53,10 @@ export default function ModalSignup() {
                             <form className="pe-5 ps-5" onSubmit={handleSubmit}>
                                 <fieldset>
                                     <div>
-                                        <input name="email" value={state.email} onChange={handleInputChange} type="email" className="form-control" placeholder="Email" />
+                                        <input name="email" value={state.email} onChange={handleInputChange} type="email" className="form-control" placeholder="Email" required/>
                                     </div>
                                     <div>
-                                        <input name="password" value={state.password} onChange={handleInputChange} type="password" className="form-control mt-2" placeholder="Password" />
+                                        <input name="password" value={state.password} onChange={handleInputChange} type="password" className="form-control mt-2" placeholder="Password" required/>
                                     </div>
                                 </fieldset>
                                 <div className="mx-3 mt-3">
@@ -59,7 +68,7 @@ export default function ModalSignup() {
                                         <div className="alert alert-danger d-flex align-items-center" role="alert" timeout={5000}>
                                             {/* <svg className="bi flex-shrink-0 me-2" width={24} height={24} role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg> */}
                                             <div>
-                                                there is error!!
+                                                There's Something Wrong, Please try again
                                             </div>
                                         </div>
                                     </>
@@ -67,7 +76,7 @@ export default function ModalSignup() {
                             </form>
                             <div className="form-check py-3">
                                 <div className="input-ceklis">
-                                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                    <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" required/>
                                 </div>
                                 <label className="form-check-label text-white fw-bold" htmlFor="defaultCheck1">
                                     I accept the Terms & Conditions and Privacy
@@ -75,7 +84,7 @@ export default function ModalSignup() {
                             </div>
                             <div className="d-flex justify-content-center">
                                 <h6 className="text-white">Already registered?</h6>
-                                <a className="text-link ms-2 fw-bold" href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                                <a className="text-link ms-2 fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                                     Login
                                 </a>
                             </div>
