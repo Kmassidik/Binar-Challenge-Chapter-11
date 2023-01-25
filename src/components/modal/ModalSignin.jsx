@@ -9,6 +9,7 @@ export default function ModalSignin() {
         password: "",
     });
     const [error, setError] = useState(false)
+    const [isSpam, setSpam] = useState(false)
     const navigate = useNavigate()
 
     const handleInputChange = (event) => {
@@ -21,6 +22,10 @@ export default function ModalSignin() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setSpam(isSpam+1)
+        if (isSpam > 3 ) {
+           return alert("Please STOP spamm the button")
+        }
         signInWithEmailAndPassword(authFirebase, state.email, state.password)
             .then((userCredential) => {
                 const jwtToken = userCredential.user.accessToken
@@ -47,10 +52,10 @@ export default function ModalSignin() {
                             <form className="pe-5 ps-5" onSubmit={handleSubmit}>
                                 <fieldset>
                                     <div>
-                                        <input name="email" value={state.email} onChange={handleInputChange} type="email" className="form-control" placeholder="Email" />
+                                        <input required name="email" value={state.email} onChange={handleInputChange} type="email" className="form-control" placeholder="Email" />
                                     </div>
                                     <div>
-                                        <input name="password" value={state.password} onChange={handleInputChange} type="password" className="form-control mt-2" placeholder="Password" />
+                                        <input required name="password" value={state.password} onChange={handleInputChange} type="password" className="form-control mt-2" placeholder="Password" />
                                     </div>
                                 </fieldset>
                                 <div className="mx-3 mt-3">
@@ -59,7 +64,7 @@ export default function ModalSignin() {
                                 {error &&
                                     <>
                                         <br />
-                                        <div className="alert alert-danger d-flex align-items-center" role="alert" timeout={5000}>
+                                        <div className="alert alert-danger d-flex align-items-center" role="alert" timeout={2000}>
                                             {/* <svg className="bi flex-shrink-0 me-2" width={24} height={24} role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg> */}
                                             <div>
                                                 there is error!!
