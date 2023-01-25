@@ -14,7 +14,7 @@ export default function getPdf() {
 
   const dataTable = async () => {
     try {
-        const db = await get(child(ref(database),`${userId}/gameHistory`))
+        const db = await get(child(ref(database),`${userId}/GameHistory`))
         const video = db.val()
         setData(video)
     } catch (error) {

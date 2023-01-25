@@ -4,6 +4,7 @@ import "./modal.css"
 
 export default function ModalLogin() {
     const [isLogin, setLogin] = useState()
+    // const [isError, setError] = useState(true)
     const Authen = () => {
         let storage = localStorage.getItem("accesstoken")
         if (storage === "" || storage === null){
