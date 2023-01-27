@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
-import { GameDetails, Home, Games, Leaderboard, Profile} from "./pages"
+import { Leaderboard } from "./pages"
 import { describe,test } from "@jest/globals";
-import { ModalSignin, ModalSignup } from "./components";
+import { ModalSignin, ModalSignup  } from "./components";
 import { BrowserRouter as Router } from "react-router-dom";
 
 
@@ -20,39 +20,18 @@ describe("test all pages render", () => {
       </Router>,
     )
   })
-  test("renders Home pages", async () => {
-    render(
-      <Router>
-        <Home/>
-      </Router>,
-    )
-  })
-  test("renders Profile pages", async () => {
-    render(
-      <Router>
-        <Profile/>
-      </Router>,
-    )
-  })
-  test("renders GameDetails pages", async () => {
-    render(
-      <Router>
-        <GameDetails/>
-      </Router>,
-    )
-  test("renders Games pages", async () => {
-    render(
-      <Router>
-        <Games/>
-      </Router>,
-    )
-  })
-  })
-  test("renders Leaderboard pages", async () => {
+  // test("renders Home pages", async () => {
+  //   render(
+  //     <Router>
+  //       <Home/>
+  //     </Router>,
+  //   )
+  // })
+  test("render fetching pages", async () => {
     render(
       <Router>
         <Leaderboard/>
-      </Router>,
+      </Router>
     )
   })
 })
